@@ -26,7 +26,7 @@
         <div class="mx-auto px-8 py-5 flex justify-between items-center">
 
             <a href="#" class="text-xl md:text-2xl font-bold font-playwrite">Azra Beauty Clinic</a>
-
+            
             <div class="flex items-center space-x-4 md:space-x-6">
                 <a href="login.php"
                     class="inline-block bg-pink-500 text-white px-4 md:px-6 py-1 md:py-2 rounded-full font-semibold text-sm md:text-base shadow-lg transition duration-300 ease-in-out transform hover:bg-pink-600 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-pink-300">

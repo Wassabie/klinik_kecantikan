@@ -26,12 +26,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
     </style> -->
 
 </head> 
-<body>
-<style>
-  .font-playwrite {
-    font-family: "Playwrite AU SA", serif;
-  }
-</style>
+
 <!--Backround-->
 <div class="bg-[url('../uploads/rumah_sakit.jpg')] bg-cover  bg-contain">
 <!--Backround-->
