@@ -26,7 +26,12 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
     </style> -->
 
 </head> 
-
+<body>
+<style>
+  .font-playwrite {
+    font-family: "Playwrite AU SA", serif;
+  }
+</style>
 <!--Backround-->
 <div class="bg-[url('../uploads/rumah_sakit.jpg')] bg-cover  bg-contain">
 <!--Backround-->
@@ -71,7 +76,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
 <!-- Deskripsi Klinik -->
 <section class="py-10">
     <div class="bg-pink-100 px-20 py-5 shadow-md rounded-lg container mx-auto text-justify">
-        <h2 class="text-6xl font-bold text-pink-600 mb-8 text-center">Azra Beauty Clinic</h2>
+        <h2 class="text-6xl font-bold text-pink-600 mb-8 text-center font-playwrite">Azra Beauty Clinic</h2>
         <p class="text-gray-700 text-xl mb-6">
             Kami adalah klinik kecantikan terpercaya yang berdedikasi untuk membantu Anda tampil cantik dan percaya diri. 
             Dengan pengalaman bertahun-tahun dan tenaga ahli profesional, kami menawarkan berbagai perawatan kulit, wajah, 
