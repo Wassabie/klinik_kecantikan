@@ -22,22 +22,22 @@
 </style>
 <!--Font Judul-->
 
-    <nav class="bg-pink-400 text-white">
+<nav class="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-300 shadow-md text-pink-700 py-4 px-8 rounded-lg">
         <div class="mx-auto px-8 py-5 flex justify-between items-center">
 
-            <a href="#" class="text-xl md:text-2xl font-bold font-playwrite">Azra Beauty Clinic</a>
+            <a href="#" class="md:text-4xl font-bold font-playwrite">Azra Beauty Clinic</a>
             
             <div class="flex items-center space-x-4 md:space-x-6">
                 <a href="login.php"
-                    class="inline-block bg-pink-500 text-white px-4 md:px-6 py-1 md:py-2 rounded-full font-semibold text-sm md:text-base shadow-lg transition duration-300 ease-in-out transform hover:bg-pink-600 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-pink-300">
-                    LOGIN
+                class="inline-block bg-pink-400 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg shadow-md transition duration-300 ease-in-out transform hover:bg-pink-500 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-pink-200 focus:ring-offset-2">
+                LOGIN
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-pink-100 py-20">
+    <section class="bg-gradient-to-r from-pink-300 via-pink-100 to-pink-300 shadow-md py-20">
         <div class="container mx-auto text-center">
             <h2 class="text-4xl font-bold text-pink-600 mb-4">Perawatan Diri Terbaik untuk Anda</h2>
             <p class="text-gray-700 mb-6">Dapatkan kulit yang sehat, cerah, dan bercahaya dengan treatment terbaik kami.
@@ -47,7 +47,7 @@
 
 
     <!-- About Section -->
-    <section id="tentang" class="bg-gray-100 py-20">
+    <section id="tentang" class="bg-gradient-to-r from-pink-300 via-pink-100 to-pink-300 shadow-md py-20">
         <div class="container mx-auto text-center">
             <h3 class="text-3xl font-bold text-gray-800 mb-6">Tentang Kami</h3>
             <p class="text-gray-700 max-w-2xl mx-auto">Kami adalah klinik kecantikan terpercaya yang telah melayani
@@ -57,7 +57,7 @@
     </section>
 
     <!-- Cabang Toko -->
-    <section class="py-10 px-6">
+    <section class="bg-gradient-to-r from-pink-300 via-pink-100 to-pink-300 shadow-md py-10 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-3xl font-bold text-gray-800 mb-6">Cabang Klinik Kami</h2>
             <p class="text-gray-600 mb-10">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.
@@ -98,7 +98,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20">
+    <section class="bg-gradient-to-r from-pink-300 via-pink-100 to-pink-300 shadow-md py-20">
         <div class="container mx-auto text-center">
             <h3 class="text-3xl font-bold text-gray-800 mb-10">Apa Kata Pelanggan Kami</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -119,7 +119,7 @@
         </div>
     </section>
     <section>
-        <div class="container mx-auto text-center">
+        <div class="bg-gradient-to-r from-pink-300 via-pink-100 to-pink-300 shadow-md container mx-auto text-center">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white shadow-md rounded-lg p-6">
                     <p class="text-gray-600 italic">"Layanan di klinik ini luar biasa! Kulit saya jadi lebih sehat."</p>
@@ -141,12 +141,12 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="kontak" class="py-20">
+    <section id="kontak" class="bg-gradient-to-r from-pink-300 via-pink-100 to-pink-300 shadow-md py-20">
     <div class="container mx-auto text-center">
         <h3 class="text-3xl font-bold text-gray-800 mb-6">Kontak Kami</h3>
         <p class="text-gray-700 mb-6">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
-        <i class="fa-brands fa-instagram fa-2x"></i>
-        <i class="ml-4 fa-brands fa-whatsapp fa-2x"></i>
+        <a  class="fa-brands fa-instagram fa-2x"></a>
+        <a href="https://wa.me/6285157778099" class="ml-4 fa-brands fa-whatsapp fa-2x"></a>
         <a href="mailto:info@klinik.com" class="mt-4 block text-pink-500 font-bold text-lg">info@klinik.com</a>
     </div>
 </section>
