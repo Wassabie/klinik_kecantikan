@@ -1,0 +1,12 @@
+.btn-pink {
+    background-color: #ec4899; /* Warna pink */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-pink:hover {
+    background-color: #db2777; /* Warna pink lebih gelap */
+}
