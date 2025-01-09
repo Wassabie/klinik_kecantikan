@@ -12,11 +12,15 @@ include '../assets/db/database.php';
 </head>
 <body>
 
+<!-- BG -->
+<div class="bg-[url('../uploads/rumah_sakit.jpg')] bg-cover bg-contain">
+
 <!-- Navbar -->
 <?php include "../layout/navbar.php" ?>
 
+
 <!-- Header Section -->
-<header class="bg-pink-500 text-white py-8">
+<header class="text-black-300 py-8">
     <div class="max-w-7xl mx-auto px-4 text-center">
         <h1 class="text-4xl font-bold mb-2">Promo Eksklusif Klinik Kecantikan</h1>
         <p class="text-lg">Manfaatkan penawaran terbatas ini untuk perawatan kecantikan terbaik.</p>
