@@ -12,9 +12,6 @@
                 <a href="#treatment" class="block py-2 px-3 rounded hover:bg-pink-500">Manajemen Treatment</a>
             </li>
             <li>
-                <a href="#homepage" class="block py-2 px-3 rounded hover:bg-pink-500">Manajemen Halaman Depan</a>
-            </li>
-            <li>
                 <a href="../logout.php" class="block py-2 px-3 rounded hover:bg-red-500">Logout</a>
             </li>
         </ul>
