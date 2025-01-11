@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $stock = $_POST['stock'];
+    $category = $_POST['category'];
 
 
     // Validasi upload gambar
@@ -32,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
 
             // Insert data ke database
-            $stmt = $conn->prepare("INSERT INTO products (name, price, stock, image) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("sdis", $name, $price, $stock, $image);
+            $stmt = $conn->prepare("INSERT INTO products (name, price, stock, image, category) VALUES (?, ?, ?, ?,?)");
+            $stmt->bind_param("sdiss", $name, $price, $stock, $image, $category);
 
             if ($stmt->execute()) {
                 header("Location: ../dashboard.php?success=Produk berhasil ditambahkan");
@@ -74,6 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="mb-4">
                     <label for="stock" class="block text-gray-700 font-semibold mb-2">Stok</label>
                     <input type="number" name="stock" id="stock" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="category" class="block text-gray-700 font-semibold mb-2">Kategori</label>
+                    <input type="text" name="category" id="category" class="w-full px-4 py-2 border rounded-md" placeholder="Contoh: Kosmetik" required>
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block text-gray-700 font-semibold mb-2">Gambar Produk</label>
