@@ -84,7 +84,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="image" class="block text-gray-700 font-semibold mb-2">Gambar Produk</label>
                     <input type="file" name="image" id="image" class="w-full px-4 py-2 border rounded-md">
                 </div>
-                <button type="submit" class="bg-pink-500 text-white py-2 px-4 rounded">Tambah Produk</button>
+                <div class="flex justify-between">
+                    <a href="../dashboard.php" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500 transition">
+                        Kembali
+                    </a>
+                    <button type="submit" class="bg-pink-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                        Tambah Produk
+                    </button>
+                </div>
             </form>
 
         </div>

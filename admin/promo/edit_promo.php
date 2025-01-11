@@ -63,9 +63,12 @@ include '../../assets/db/database.php'; // Koneksi database
                     <p class="text-sm text-gray-600 mt-2">Gambar saat ini:</p>
                     <img src="../../uploads/<?= htmlspecialchars($promo['image']) ?>" alt="Gambar Promo" class="w-32 h-32 object-cover mt-2">
                 </div>
-                <div class="flex justify-end">
-                    <button type="submit" class="bg-pink-500 text-white py-2 px-4 rounded hover:bg-pink-600 transition">
-                        Update Promo
+                <div class="flex justify-between">
+                    <a href="../dashboard.php" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500 transition">
+                        Kembali
+                    </a>
+                    <button type="submit" class="bg-pink-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                        Edit Promo
                     </button>
                 </div>
             </form>
