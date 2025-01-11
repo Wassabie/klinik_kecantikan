@@ -46,6 +46,10 @@ include '../../assets/db/database.php'; // Koneksi database
                     <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
                 </div>
                 <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Kategori</label>
+                    <input type="text" name="category" value="<?= htmlspecialchars($product['category']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                </div>
+                <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Harga Produk</label>
                     <input type="number" name="price" value="<?= $product['price'] ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
                 </div>
