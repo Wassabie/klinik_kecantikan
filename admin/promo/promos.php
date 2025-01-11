@@ -15,6 +15,7 @@
                 <th class="py-3 px-4">Judul Promo</th>
                 <th class="py-3 px-4">Deskripsi</th>
                 <th class="py-3 px-4">Diskon</th>
+                <th class="py-3 px-4">Kategori</th>
                 <th class="py-3 px-4">Berlaku Hingga</th>
                 <th class="py-3 px-4">Aksi</th>
             </tr>
@@ -38,6 +39,7 @@
                     <td class='py-3 px-4'>{$row['title']}</td>
                     <td class='py-3 px-4'>{$row['description']}</td>
                     <td class='py-3 px-4'>{$discount}</td>
+                    <td class='py-3 px-4'>{$row['category']}</td>
                     <td class='py-3 px-4'>{$valid_until}</td>
                     <td class='py-3 px-4'>
                         <a href='promo/edit_promo.php?id={$row['id']}' class='inline-block px-4 py-2 text-sm text-white bg-pink-500 rounded hover:bg-pink-600'>Edit</a>
