@@ -19,21 +19,16 @@ include '../assets/db/database.php';
         <!-- NAVBAR -->
         <?php include "../layout/navbar.php" ?>
 
-
-        <!-- Header Section -->
-        <header class="text-black-300 py-8">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <h1 class="text-4xl font-bold mb-2">Produk Skincare Terbaik</h1>
-                <p class="text-lg">Temukan produk yang dirancang untuk kecantikan dan kesehatan kulit Anda.</p>
-            </div>
-        </header>
-
         <!-- Produk Section -->
         <div>
-            <section class="py-12 px-6 bg-gray-50">
+            <section class="py-12 px-6">
                 <div class="max-w-7xl mx-auto">
-                    <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-8">Daftar Produk</h2>
-                    
+                    <h2 class="relative text-3xl font-extrabold text-center text-gray-800 mb-8 p-4 border-4 border border-blue-500 rounded-xl shadow-md bg-gradient-to-r from-blue-200 via-white to-blue-100">
+                        <span class="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
+                            Daftar Produk
+                        </span>
+                    </h2>
+
                     <!-- Grid for Products -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <?php
@@ -53,8 +48,14 @@ include '../assets/db/database.php';
                                     products.category = promos.category COLLATE utf8mb4_general_ci 
                                 WHERE 
                                     promos.valid_until >= CURDATE() 
-                                    OR promos.category IS NULL";
-            
+                                    OR promos.category IS NULL
+                                ORDER BY 
+                                    CASE 
+                                        WHEN promos.discount IS NOT NULL THEN 1 
+                                        ELSE 0 
+                                    END DESC, 
+                                    promos.discount DESC";
+
                         $result = $conn->query($query);
 
                         while ($product = $result->fetch_assoc()): 
@@ -71,19 +72,19 @@ include '../assets/db/database.php';
                                         alt="<?= htmlspecialchars($product['name']) ?>" 
                                         class="w-full h-48 object-cover">
                                     <?php if ($isPromoValid): ?>
-                                        <span class="absolute top-4 left-4 bg-pink-500 text-white py-1 px-3 rounded-full text-sm">
+                                        <span class="absolute top-4 left-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white py-1 px-3 rounded-full text-sm">
                                             Diskon <?= $product['discount'] ?>%
                                         </span>
                                     <?php endif; ?>
                                 </div>
-                                <div class="p-6">
+                                <div class="bg-gradient-to-r from-blue-100 via-white-200 to-blue-300 p-6">
                                     <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($product['name']) ?></h3>
                                     <p class="text-gray-600 text-sm mt-2">Stok: <?= htmlspecialchars($product['stock']) ?></p>
                                     <?php if ($isPromoValid): ?>
                                         <p class="text-gray-400 line-through text-sm">Rp <?= number_format($product['price'], 0, ',', '.') ?></p>
                                     <?php endif; ?>
-                                    <p class="text-pink-500 text-lg font-bold">Rp <?= number_format($discountedPrice, 0, ',', '.') ?></p>
-                                    <button class="mt-4 w-full btn-pink text-white py-2 px-4 rounded-lg hover:shadow-lg transition">
+                                    <p class="text-blue-500 text-lg font-bold">Rp <?= number_format($discountedPrice, 0, ',', '.') ?></p>
+                                    <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition">
                                         Beli Sekarang
                                     </button>
                                 </div>
@@ -93,6 +94,7 @@ include '../assets/db/database.php';
                 </div>
             </section>
         </div>
+
 
         <!-- Footer -->
         <?php include "../layout/footer.php" ?>

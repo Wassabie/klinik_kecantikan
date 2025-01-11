@@ -14,7 +14,7 @@
         <a href="#" class="hover:text-green-700">
             <i class=" ml-4 fa-brands fa-whatsapp fa-2x"></i>
         </a>
-        <a href="mailto:info@klinik.com" class="mt-4 block text-pink-500 font-bold text-lg">info@klinik.com</a>
+        <a href="mailto:info@klinik.com" class="mt-4 block text-blue-500 font-bold text-lg">info@klinik.com</a>
     </div>
 </section>
 

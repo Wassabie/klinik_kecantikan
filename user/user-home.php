@@ -141,7 +141,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
     <div class="flex flex-col items-center p-6 bg-white shadow-md rounded-lg max-w-sm mx-auto">
     <!-- Foto Dokter -->
     <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-500">
-        <img src="https://via.placeholder.com/150" alt="Foto Dokter" class="w-full h-full object-cover">
+        <img src="../uploads/assalamualikum-bro.jpg" alt="Foto Dokter" class="w-full h-full object-cover">
     </div>
 
     <!-- Nama Dokter -->
