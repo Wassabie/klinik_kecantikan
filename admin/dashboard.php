@@ -42,13 +42,6 @@ include('../assets/db/database.php'); // Koneksi database
             <!-- Konten Treatment -->
             <?php include "treatments/treatments.php"; ?>
         </section>
-
-        <!-- Manajemen Halaman Depan -->
-        <section id="homepage">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Manajemen Halaman Depan</h2>
-            <!-- Konten Halaman Depan -->
-            <?php include "home/home.php"; ?>
-        </section>
     </div>
 </body>
 </html>
