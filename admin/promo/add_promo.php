@@ -13,7 +13,7 @@ include '../../assets/db/database.php'; // Koneksi database
     <title>Tambah Promo</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
     <div class="min-h-screen flex items-center justify-center">
         <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
             <h2 class="text-2xl font-bold text-center text-gray-700 mb-6">Tambah Promo</h2>
@@ -47,7 +47,7 @@ include '../../assets/db/database.php'; // Koneksi database
                     <a href="../dashboard.php" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500 transition">
                         Kembali
                     </a>
-                    <button type="submit" class="bg-pink-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
                         Tambah Promo
                     </button>
                 </div>

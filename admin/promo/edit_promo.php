@@ -38,28 +38,28 @@ include '../../assets/db/database.php'; // Koneksi database
                 <input type="hidden" name="id" value="<?= $promo['id'] ?>">
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Judul Promo</label>
-                    <input type="text" name="title" value="<?= htmlspecialchars($promo['title']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    <input type="text" name="title" value="<?= htmlspecialchars($promo['title']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Kategori</label>
-                    <input type="text" name="category" value="<?= htmlspecialchars($promo['category']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    <input type="text" name="category" value="<?= htmlspecialchars($promo['category']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Deskripsi Promo</label>
-                    <textarea name="description" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required><?= htmlspecialchars($promo['description']) ?></textarea>
+                    <textarea name="description" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required><?= htmlspecialchars($promo['description']) ?></textarea>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Diskon</label>
-                    <input type="number" name="discount" value="<?= $promo['discount'] ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    <input type="number" name="discount" value="<?= $promo['discount'] ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Berlaku Hingga</label>
                     <input type="date" name="valid_until" value="<?= $promo['valid_until'] ?>" 
-                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Gambar Promo</label>
-                    <input type="file" name="image" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300">
+                    <input type="file" name="image" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300">
                     <p class="text-sm text-gray-600 mt-2">Gambar saat ini:</p>
                     <img src="../../uploads/<?= htmlspecialchars($promo['image']) ?>" alt="Gambar Promo" class="w-32 h-32 object-cover mt-2">
                 </div>
@@ -67,7 +67,7 @@ include '../../assets/db/database.php'; // Koneksi database
                     <a href="../dashboard.php" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500 transition">
                         Kembali
                     </a>
-                    <button type="submit" class="bg-pink-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
                         Edit Promo
                     </button>
                 </div>

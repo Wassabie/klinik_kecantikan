@@ -1,14 +1,14 @@
 <!-- Konten Manajemen Produk -->
 <div class="flex justify-between items-center mb-6">
-    <a href="products/add_product.php" class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600">
+    <a href="products/add_product.php" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
         Tambah Produk
     </a>
 </div>
 
 <!-- Tabel Produk -->
-<div class="overflow-x-auto shadow-lg rounded-lg border border-pink-300 bg-white">
+<div class="overflow-x-auto shadow-lg rounded-lg border border-blue-300 bg-white">
     <table class="table-auto w-full text-left border-collapse">
-        <thead class="bg-pink-500 text-white">
+        <thead class="bg-blue-500 text-white">
             <tr>
                 <th class="py-3 px-4">No</th>
                 <th class="py-3 px-4">Gambar</th>
@@ -34,7 +34,7 @@
                     <td class='py-3 px-4'>Rp. " . number_format($row['price'], 0, ',', '.') . "</td>
                     <td class='py-3 px-4'>{$row['stock']}</td>
                     <td class='py-3 px-4'>
-                        <a href='products/edit_product.php?id={$row['id']}' class='inline-block px-4 py-2 text-sm text-white bg-pink-500 rounded hover:bg-pink-600'>Edit</a>
+                        <a href='products/edit_product.php?id={$row['id']}' class='inline-block px-4 py-2 text-sm text-white bg-blue-500 rounded hover:bg-blue-600'>Edit</a>
                         <a href='#' 
                             class='delete-btn inline-block px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600 ml-2' 
                             id={$row['id']}>Hapus</a>

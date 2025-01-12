@@ -43,23 +43,23 @@ include '../../assets/db/database.php'; // Koneksi database
                 <input type="hidden" name="id" value="<?= $product['id'] ?>">
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Nama Produk</label>
-                    <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Kategori</label>
-                    <input type="text" name="category" value="<?= htmlspecialchars($product['category']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    <input type="text" name="category" value="<?= htmlspecialchars($product['category']) ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Harga Produk</label>
-                    <input type="number" name="price" value="<?= $product['price'] ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    <input type="number" name="price" value="<?= $product['price'] ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Stok Produk</label>
-                    <input type="number" name="stock" value="<?= $product['stock'] ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300" required>
+                    <input type="number" name="stock" value="<?= $product['stock'] ?>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold mb-2">Gambar Produk</label>
-                    <input type="file" name="image" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-pink-300">
+                    <input type="file" name="image" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300">
                     <p class="text-sm text-gray-600 mt-2">Gambar saat ini:</p>
                     <img src="../../uploads/<?= htmlspecialchars($product['image']) ?>" alt="Gambar Produk" class="w-32 h-32 object-cover mt-2">
                 </div>
@@ -67,7 +67,7 @@ include '../../assets/db/database.php'; // Koneksi database
                     <a href="../dashboard.php" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500 transition">
                         Kembali
                     </a>
-                    <button type="submit" class="bg-pink-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
                         Tambah Promo
                     </button>
                 </div>
