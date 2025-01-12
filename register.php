@@ -43,11 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Register - Azra Beauty Clinic</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-pink-100 min-h-screen flex items-center justify-center">
+<body class="bg-blue-100 min-h-screen flex items-center justify-center">
 
     <!-- Register Card -->
     <div class="bg-white shadow-lg rounded-lg p-6 md:p-8 w-full max-w-md">
-        <h1 class="text-2xl md:text-3xl font-bold text-pink-500 text-center mb-6">Register</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-blue-500 text-center mb-6">Register</h1>
         
         <?php if (isset($error_message)): ?>
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
@@ -59,21 +59,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div>
                 <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
                 <input type="text" id="username" name="username" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-pink-300">
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-blue-300">
             </div>
             <div>
                 <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
                 <input type="password" id="password" name="password" required
-                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-pink-300">
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-blue-300">
             </div>
             <button type="submit"
-                class="w-full bg-pink-500 text-white py-2 rounded-lg font-semibold text-lg shadow-lg">
+                class="w-full bg-blue-500 text-white py-2 rounded-lg font-semibold text-lg shadow-lg">
                 Register
             </button>
         </form>
         <div class="text-center mt-4 text-sm text-gray-600">
             Sudah punya akun? 
-            <a href="login.php" class="text-pink-500 hover:underline">Login di sini</a>
+            <a href="login.php" class="text-blue-500 hover:underline">Login di sini</a>
         </div>
     </div>
 </body>

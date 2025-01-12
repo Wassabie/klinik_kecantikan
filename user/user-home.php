@@ -49,7 +49,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
                     <h2 class="text-2xl font-bold text-white mb-2"><?= htmlspecialchars($promo['title']) ?></h2>
                     <p class="text-gray-300 text-sm mb-4"><?= htmlspecialchars($promo['description']) ?></p>
                     <div class="flex justify-between items-center">
-                        <span class="text-sm text-pink-400 font-semibold">
+                        <span class="text-sm text-blue-400 font-semibold">
                             Diskon: <?= $promo['discount'] ?>% <?= $promo['discount'] ? "" : "Promo Spesial!" ?>
                         </span>
                         <span class="text-xs text-gray-400">Berlaku hingga: <?= date("d M Y", strtotime($promo['valid_until'])) ?></span>
@@ -71,7 +71,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
 <!-- Deskripsi Klinik -->
 <section class="py-10">
     <div class="transparent-bg px-20 py-5 rounded-lg container mx-auto text-justify">
-        <h2 class="text-6xl font-bold text-pink-600 mb-8 text-center font-playwrite">Azra Beauty Clinic</h2>
+        <h2 class="text-6xl font-bold text-blue-600 mb-8 text-center font-playwrite">Azra Beauty Clinic</h2>
         <p class="text-black-1000 font-bold text-xl mb-6">
             Kami adalah klinik kecantikan terpercaya yang berdedikasi untuk membantu Anda tampil cantik dan percaya diri. 
             Dengan pengalaman bertahun-tahun dan tenaga ahli profesional, kami menawarkan berbagai perawatan kulit, wajah, 

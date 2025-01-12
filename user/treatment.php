@@ -47,14 +47,14 @@ include '../assets/db/database.php';
                                 <img src="../uploads/<?= htmlspecialchars($treatment['image']) ?>"
                                     alt="<?= htmlspecialchars($treatment['name']) ?>"
                                     class="w-full h-48 object-cover">
-                                <span class="absolute top-4 left-4 bg-pink-500 text-white py-1 px-3 rounded-full text-sm">
+                                <span class="absolute top-4 left-4 bg-blue-500 text-white py-1 px-3 rounded-full text-sm">
                                     Rp <?= number_format($treatment['price'], 0, ',', '.') ?>
                                 </span>
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($treatment['name']) ?></h3>
                                 <p class="text-gray-600 text-sm mt-3"><?= htmlspecialchars($treatment['description']) ?></p>
-                                <button class="mt-6 w-full btn-pink text-white py-2 px-4 rounded-lg hover:shadow-lg transition" onclick="window.open('https://wa.me/6285157778099')">
+                                <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition">
                                     Hubungi Sekarang
                                 </button>
                             </div>
