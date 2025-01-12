@@ -94,10 +94,11 @@ include '../assets/db/database.php';
                 </div>
             </section>
         </div>
-
-
+        
+        
         <!-- Footer -->
         <?php include "../layout/footer.php" ?>
+    </div>
 
 </body>
 

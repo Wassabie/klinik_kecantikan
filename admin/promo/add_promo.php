@@ -23,16 +23,16 @@ include '../../assets/db/database.php'; // Koneksi database
                     <input type="text" name="title" id="title" class="w-full px-4 py-2 border rounded-md" required>
                 </div>
                 <div class="mb-4">
+                    <label for="category" class="block text-gray-700 font-semibold mb-2">Kategori</label>
+                    <input type="text" name="category" id="category" class="w-full px-4 py-2 border rounded-md" placeholder="Contoh: Kosmetik" required>
+                </div>
+                <div class="mb-4">
                     <label for="description" class="block text-gray-700 font-semibold mb-2">Deskripsi Promo</label>
                     <textarea name="description" id="description" rows="4" class="w-full px-4 py-2 border rounded-md" required></textarea>
                 </div>
                 <div class="mb-4">
                     <label for="discount" class="block text-gray-700 font-semibold mb-2">Diskon (%)</label>
                     <input type="number" name="discount" id="discount" class="w-full px-4 py-2 border rounded-md" min="0">
-                </div>
-                <div class="mb-4">
-                    <label for="category" class="block text-gray-700 font-semibold mb-2">Kategori</label>
-                    <input type="text" name="category" id="category" class="w-full px-4 py-2 border rounded-md" placeholder="Contoh: Kosmetik" required>
                 </div>
 
                 <div class="mb-4">

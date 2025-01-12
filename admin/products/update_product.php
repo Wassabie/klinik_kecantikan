@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Eksekusi query
     if ($stmt->execute()) {
-        header("Location: ../dashboard.php?");
+        header("Location: ../dashboard.php");
     } else {
         die("Error: " . $stmt->error);
     }

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        header("Location: ../dashboard.php?");
+        header("Location: ../dashboard.php");
     } else {
         header("Location: ../dashboard.php");
     }

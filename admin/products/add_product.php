@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param("sdiss", $name, $price, $stock, $image, $category);
 
             if ($stmt->execute()) {
-                header("Location: ../dashboard.php?success=Produk berhasil ditambahkan");
+                header("Location: ../dashboard.php");
                 exit;
             } else {
                 echo "Error: " . $stmt->error . "<br>"; 

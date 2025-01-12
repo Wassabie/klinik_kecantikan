@@ -8,6 +8,7 @@ include '../../assets/db/database.php'; // Koneksi database
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = intval($_POST['id']);
     $name = $_POST['name'];
+    $category = $_POST['category'];
     $description = $_POST['description'];
     $price = floatval($_POST['price']);
     $newImage = $_FILES['image']['name'];
@@ -28,20 +29,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             // Update data termasuk gambar
-            $stmt = $conn->prepare("UPDATE treatments SET name = ?, description = ?, price = ?, image = ? WHERE id = ?");
-            $stmt->bind_param("ssdsi", $name, $description, $price, $newImage, $id);
+            $stmt = $conn->prepare("UPDATE treatments SET name = ?, category = ?, description = ?, price = ?, image = ? WHERE id = ?");
+            $stmt->bind_param("sssdsi", $name, $category, $description, $price, $newImage, $id);
         } else {
             die("Gagal mengupload gambar baru.");
         }
     } else {
         // Update data tanpa mengganti gambar
-        $stmt = $conn->prepare("UPDATE treatments SET name = ?, description = ?, price = ? WHERE id = ?");
-        $stmt->bind_param("ssdi", $name, $description, $price, $id);
+        $stmt = $conn->prepare("UPDATE treatments SET name = ?, category = ?, description = ?, price = ? WHERE id = ?");
+        $stmt->bind_param("sssdi", $name, $category, $description, $price, $id);
     }
 
     // Eksekusi query
     if ($stmt->execute()) {
-        header("Location: ../dashboard.php?success=Treatment berhasil diupdate");
+        header("Location: ../dashboard.php");
     } else {
         die("Error: " . $stmt->error);
     }

@@ -21,41 +21,73 @@ include '../assets/db/database.php';
     <!-- NAVBAR -->
     <?php include "../layout/navbar.php" ?>
 
-    <!-- Header Section -->
-    <header class="transparent-bg text-black-300 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-4xl font-bold mb-2">Layanan Treatment Kami</h1>
-            <p class="text-lg">Jelajahi berbagai perawatan yang dirancang untuk meningkatkan kecantikan dan kesehatan kulit Anda.</p>
-        </div>
-    </header>
-
     <!-- Treatment Section -->
     <div>
-        <section class="py-12 px-6 transparent-bg">
+        <section class="py-12 px-6">
             <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl font-extrabold text-center text-gray-800 mb-8">Pilihan Treatment</h2>
+                <h2 class="relative text-3xl font-extrabold text-center text-gray-800 mb-8 p-4 border-4 border border-blue-500 rounded-xl shadow-md bg-gradient-to-r from-blue-200 via-white to-blue-100">
+                    <span class="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
+                        Daftar Treatment
+                    </span>
+                </h2>
 
-                <!-- Grid for Treatments -->        
+                <!-- Grid for Treatments -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <?php
-                    $query = "SELECT * FROM treatments";
+                    $query = "SELECT 
+                                treatments.id, 
+                                treatments.name, 
+                                treatments.description, 
+                                treatments.price, 
+                                treatments.image, 
+                                promos.discount, 
+                                promos.valid_until
+                            FROM 
+                                treatments
+                            LEFT JOIN 
+                                promos 
+                            ON 
+                                treatments.category = promos.category COLLATE utf8mb4_general_ci 
+                            WHERE 
+                                promos.valid_until >= CURDATE() 
+                                OR promos.category IS NULL
+                            ORDER BY 
+                                CASE 
+                                    WHEN promos.discount IS NOT NULL THEN 1 
+                                    ELSE 0 
+                                END DESC, 
+                                promos.discount DESC";
+
                     $result = $conn->query($query);
-                    while ($treatment = $result->fetch_assoc()): ?>
+
+                    while ($treatment = $result->fetch_assoc()): 
+                        // Harga diskon jika promo berlaku
+                        $isPromoValid = !empty($treatment['discount']) && strtotime($treatment['valid_until']) >= time();
+                        $discountedPrice = $isPromoValid 
+                            ? $treatment['price'] * (1 - ($treatment['discount'] / 100)) 
+                            : $treatment['price'];
+                    ?>
                         <!-- Treatment Card -->
                         <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
                             <div class="relative">
-                                <img src="../uploads/<?= htmlspecialchars($treatment['image']) ?>"
-                                    alt="<?= htmlspecialchars($treatment['name']) ?>"
+                                <img src="../uploads/<?= htmlspecialchars($treatment['image']) ?>" 
+                                    alt="<?= htmlspecialchars($treatment['name']) ?>" 
                                     class="w-full h-48 object-cover">
-                                <span class="absolute top-4 left-4 bg-blue-500 text-white py-1 px-3 rounded-full text-sm">
-                                    Rp <?= number_format($treatment['price'], 0, ',', '.') ?>
-                                </span>
+                                <?php if ($isPromoValid): ?>
+                                    <span class="absolute top-4 left-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white py-1 px-3 rounded-full text-sm">
+                                        Diskon <?= $treatment['discount'] ?>%
+                                    </span>
+                                <?php endif; ?>
                             </div>
-                            <div class="p-6">
+                            <div class="bg-gradient-to-r from-blue-100 via-white-200 to-blue-300 p-6">
                                 <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($treatment['name']) ?></h3>
-                                <p class="text-gray-600 text-sm mt-3"><?= htmlspecialchars($treatment['description']) ?></p>
+                                <p class="text-gray-600 text-sm mt-2"><?= htmlspecialchars($treatment['description']) ?></p>
+                                <?php if ($isPromoValid): ?>
+                                    <p class="text-gray-400 line-through text-sm">Rp <?= number_format($treatment['price'], 0, ',', '.') ?></p>
+                                <?php endif; ?>
+                                <p class="text-blue-500 text-lg font-bold">Rp <?= number_format($discountedPrice, 0, ',', '.') ?></p>
                                 <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition">
-                                    Hubungi Sekarang
+                                    Pesan Sekarang
                                 </button>
                             </div>
                         </div>
@@ -65,8 +97,10 @@ include '../assets/db/database.php';
         </section>
     </div>
 
+    
     <!-- Footer -->
     <?php include "../layout/footer.php" ?>
+    </div>
 
 </body>
 

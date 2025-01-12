@@ -13,16 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $stmt->bind_param("i", $id);
 
     if ($stmt->execute()) {
-        header("Location: ../dashboard.php?success=Produk berhasil dihapus");
+        header("Location: ../dashboard.php");
     } else {
-        header("Location: ../dashboard.php?error=Gagal menghapus produk");
+        header("Location: ../dashboard.php");
     }
 
     $stmt->close();
     $conn->close();
 } else {
     // Redirect jika akses tidak valid
-    header("Location: ../dashboard.php?error=Akses tidak valid");
+    header("Location: ../dashboard.php");
     exit;
 }
 ?>

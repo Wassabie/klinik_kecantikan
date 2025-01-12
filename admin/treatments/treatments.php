@@ -13,6 +13,7 @@
                 <th class="py-3 px-4">No</th>
                 <th class="py-3 px-4">Gambar</th>
                 <th class="py-3 px-4">Nama Treatment</th>
+                <th class="py-3 px-4">Kategory</th>
                 <th class="py-3 px-4">Deskripsi</th>
                 <th class="py-3 px-4">Harga</th>
                 <th class="py-3 px-4">Aksi</th>
@@ -29,6 +30,7 @@
                         <img src='../uploads/{$row['image']}' alt='{$row['name']}' class='w-16 h-16 object-cover rounded'>
                     </td>
                     <td class='py-3 px-4'>{$row['name']}</td>
+                    <td class='py-3 px-4'>{$row['category']}</td>
                     <td class='py-3 px-4'>" . substr($row['description'], 0, 50) . "</td>
                     <td class='py-3 px-4'>Rp. " . number_format($row['price'], 0, ',', '.') . "</td>
                     <td class='py-3 px-4'>

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($stmt->execute()) {
-        header("Location: ../dashboard.php?success=Promo berhasil diupdate");
+        header("Location: ../dashboard.php");
     } else {
         die("Error: " . $stmt->error);
     }

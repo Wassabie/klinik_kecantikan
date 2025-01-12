@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("ssssis",$title, $description, $imageName, $valid_until, $discount, $category);
 
         if ($stmt->execute()) {
-            header("Location: ../dashboard.php?success=Promo berhasil ditambahkan");
+            header("Location: ../dashboard.php");
         } else {
             die("Error: " . $stmt->error);
         }

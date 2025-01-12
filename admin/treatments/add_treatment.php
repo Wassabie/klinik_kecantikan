@@ -9,6 +9,7 @@ if (!isset($conn)) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
+    $category = $_POST['category'];
     $description = $_POST['description'];
     $price = $_POST['price'];
     $image = $_FILES['image']['name'];
@@ -16,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $targetFile = $targetDir . basename($image);
 
     if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFile)) {
-        $stmt = $conn->prepare("INSERT INTO treatments (name, description, price, image) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssds", $name, $description, $price, $image);
+        $stmt = $conn->prepare("INSERT INTO treatments (name, category, description, price, image) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssds", $name, $category, $description, $price, $image);
 
         if ($stmt->execute()) {
-            header("Location: ../dashboard.php?success=Treatment berhasil ditambahkan");
+            header("Location: ../dashboard.php");
             exit;
         } else {
             echo "Error: " . $stmt->error;
@@ -47,6 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-semibold mb-2">Nama Treatment</label>
                     <input type="text" name="name" id="name" class="w-full px-4 py-2 border rounded-md" required>
+                </div>
+                <div class="mb-4">
+                    <label for="category" class="block text-gray-700 font-semibold mb-2">Kategori</label>
+                    <input type="text" name="category" id="category" class="w-full px-4 py-2 border rounded-md" required>
                 </div>
                 <div class="mb-4">
                     <label for="description" class="block text-gray-700 font-semibold mb-2">Deskripsi Treatment</label>

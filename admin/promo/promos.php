@@ -37,9 +37,9 @@
                         <img src='../uploads/{$row['image']}' alt='{$row['title']}' class='w-16 h-16 object-cover rounded'>
                     </td>
                     <td class='py-3 px-4'>{$row['title']}</td>
+                    <td class='py-3 px-4'>{$row['category']}</td>
                     <td class='py-3 px-4'>{$row['description']}</td>
                     <td class='py-3 px-4'>{$discount}</td>
-                    <td class='py-3 px-4'>{$row['category']}</td>
                     <td class='py-3 px-4'>{$valid_until}</td>
                     <td class='py-3 px-4'>
                         <a href='promo/edit_promo.php?id={$row['id']}' class='inline-block px-4 py-2 text-sm text-white bg-pink-500 rounded hover:bg-pink-600'>Edit</a>
