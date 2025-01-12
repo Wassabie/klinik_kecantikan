@@ -1,6 +1,5 @@
 <!-- Konten Manajemen Produk -->
 <div class="flex justify-between items-center mb-6">
-    <!-- <h1 class="text-2xl font-bold text-gray-800">Manajemen Produk</h1> -->
     <a href="products/add_product.php" class="px-4 py-2 bg-pink-500 text-white rounded-md hover:bg-pink-600">
         Tambah Produk
     </a>
