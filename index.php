@@ -22,19 +22,8 @@
     </style>
     <!--Font Judul-->
 
-    <nav class="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 shadow-md text-blue-700 py-4 px-8 rounded-lg">
-        <div class="mx-auto px-8 py-5 flex justify-between items-center">
-
-            <a href="#" class="md:text-4xl font-bold font-playwrite">Azra Beauty Clinic</a>
-
-            <div class="flex items-center space-x-4 md:space-x-6">
-                <a href="login.php"
-                    class="inline-block bg-blue-400 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg shadow-md transition duration-300 ease-in-out transform hover:bg-blue-500 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200 focus:ring-offset-2">
-                    LOGIN
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!--Navbar-->
+    <?php include "layout/navbar2.php" ?>
 
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-20">
@@ -68,7 +57,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             <!-- Card Cabang -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="https://via.placeholder.com/400x250" class="w-full h-48 object-cover">
+                <img src="uploads/Rumah-Sakit1.jpg" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-800">Cabang Jakarta</h3>
                     <p class="text-gray-600 text-sm mt-2">Alamat: Jl. Sudirman No. 45, Jakarta Pusat. Melayani sejak
@@ -78,7 +67,7 @@
 
             <!-- Card Cabang -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="https://via.placeholder.com/400x250" class="w-full h-48 object-cover">
+                <img src="uploads/Rumah-Sakit2.jpg" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-800">Cabang Bandung</h3>
                     <p class="text-gray-600 text-sm mt-2">Alamat: Jl. Dago No. 78, Bandung. Dikenal dengan layanan
@@ -88,7 +77,7 @@
 
             <!-- Card Cabang -->
             <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="https://via.placeholder.com/400x250" class="w-full h-48 object-cover">
+                <img src="uploads/Rumah-Sakit3.jpg" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-800">Cabang Surabaya</h3>
                     <p class="text-gray-600 text-sm mt-2">Alamat: Jl. Tunjungan No. 32, Surabaya. Pelayanan 24/7.</p>
@@ -98,7 +87,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-20">
+    <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-10">
         <div class="container mx-auto text-center">
             <h3 class="text-3xl font-bold text-gray-800 mb-10">Apa Kata Pelanggan Kami</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,8 +107,8 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md container mx-auto text-center">
+    <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-10">
+        <div class="container mx-auto text-center">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white shadow-md rounded-lg p-6">
                     <p class="text-gray-600 italic">"Layanan di klinik ini luar biasa! Kulit saya jadi lebih sehat."</p>
@@ -136,8 +125,6 @@
                 </div>
             </div>
         </div>
-        </div>
-
     </section>
 
     <!-- Contact Section -->

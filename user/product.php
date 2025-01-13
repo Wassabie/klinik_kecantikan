@@ -85,7 +85,7 @@ include '../assets/db/database.php';
                             <?php endif; ?>
                             <p class="text-blue-500 text-lg font-bold mt-1">Rp <?= number_format($discountedPrice, 0, ',', '.') ?></p>
                             <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition">
-                                Beli Sekarang
+                            <i class="fa-brands fa-whatsapp"></i> Beli Sekarang
                             </button>
                         </div>
                     </div>
