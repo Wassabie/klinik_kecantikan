@@ -35,28 +35,28 @@ include '../assets/db/database.php';
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <?php
                         $query = "SELECT 
-                treatments.id, 
-                treatments.name, 
-                treatments.description, 
-                treatments.price, 
-                treatments.image, 
-                promos.discount, 
-                promos.valid_until
-            FROM 
-                treatments
-            LEFT JOIN 
-                promos 
-            ON 
-                treatments.category = promos.category COLLATE utf8mb4_general_ci 
-            WHERE 
-                promos.valid_until >= CURDATE() 
-                OR promos.category IS NULL
-            ORDER BY 
-                CASE 
-                    WHEN promos.discount IS NOT NULL THEN 1 
-                    ELSE 0 
-                END DESC, 
-                promos.discount DESC";
+                                        treatments.id, 
+                                        treatments.name, 
+                                        treatments.description, 
+                                        treatments.price, 
+                                        treatments.image, 
+                                        promos.discount, 
+                                        promos.valid_until
+                                    FROM 
+                                        treatments
+                                    LEFT JOIN 
+                                        promos 
+                                    ON 
+                                        treatments.category = promos.category COLLATE utf8mb4_general_ci 
+                                    WHERE 
+                                        promos.valid_until >= CURDATE() 
+                                        OR promos.category IS NULL
+                                    ORDER BY 
+                                        CASE 
+                                            WHEN promos.discount IS NOT NULL THEN 1 
+                                            ELSE 0 
+                                        END DESC, 
+                                        promos.discount DESC";
 
                         $result = $conn->query($query);
 

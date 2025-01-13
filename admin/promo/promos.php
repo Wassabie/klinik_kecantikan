@@ -13,9 +13,9 @@
                 <th class="py-3 px-4">No</th>
                 <th class="py-3 px-4">Gambar</th>
                 <th class="py-3 px-4">Judul Promo</th>
+                <th class="py-3 px-4">Kategori</th>
                 <th class="py-3 px-4">Deskripsi</th>
                 <th class="py-3 px-4">Diskon</th>
-                <th class="py-3 px-4">Kategori</th>
                 <th class="py-3 px-4">Berlaku Hingga</th>
                 <th class="py-3 px-4">Aksi</th>
             </tr>
