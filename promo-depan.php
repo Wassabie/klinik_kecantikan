@@ -1,6 +1,5 @@
 <?php
-include('../auth.php');
-include '../assets/db/database.php';
+include 'assets/db/database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +14,10 @@ include '../assets/db/database.php';
 <body>
 
     <!-- BG -->
-    <div class="bg-[url('../uploads/rumah_sakit.jpg')] bg-cover bg-contain">
+    <div class="bg-[url('uploads/rumah_sakit.jpg')] bg-cover bg-contain">
 
         <!-- Navbar -->
-        <?php include "../layout/navbar.php" ?>
+        <?php include "layout/navbar2.php" ?>
 
         <!-- Promo Section -->
         <div>
@@ -39,23 +38,11 @@ include '../assets/db/database.php';
 
                         // Loop untuk menampilkan setiap promosi
                         while ($promo = $result->fetch_assoc()):
-                            // Proses kategori
-                            $category = htmlspecialchars($promo['category']);
-                            $shortCategory = '';
-                            $buttonLink = '#';
-
-                            if (str_starts_with($category, 'Treatment-')) {
-                                $shortCategory = str_replace('Treatment-', '', $category);
-                                $buttonLink = 'treatment.php';
-                            } elseif (str_starts_with($category, 'Product-')) {
-                                $shortCategory = str_replace('Product-', '', $category);
-                                $buttonLink = 'product.php';
-                            }
                         ?>
                             <!-- Promo Card -->
                             <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
                                 <div class="relative">
-                                    <img src="../uploads/<?= htmlspecialchars($promo['image']) ?>" alt="<?= htmlspecialchars($promo['title']) ?>" class="w-full h-48 object-cover">
+                                    <img src="uploads/<?= htmlspecialchars($promo['image']) ?>" alt="<?= htmlspecialchars($promo['title']) ?>" class="w-full h-48 object-cover">
                                     <span class="absolute top-4 left-4 bg-gradient-to-r from-blue-400 to-blue-600 text-white py-1 px-3 rounded-full text-sm">
                                         Berlaku hingga <?= date('d M Y', strtotime($promo['valid_until'])) ?>
                                     </span>
@@ -63,22 +50,23 @@ include '../assets/db/database.php';
                                 <div class="p-6 flex flex-col justify-between bg-gradient-to-r from-blue-100 to-blue-200 min-h-[300px]">
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($promo['title']) ?></h3>
-                                        <p class="text-lg font-semibold">Kategori: <?= htmlspecialchars($shortCategory) ?></p>
+                                        <p class="text-lg font-semibold">Kategori: <?= htmlspecialchars($promo['category']) ?></p>
                                         <p class="text-gray-600 text-sm mt-2"><?= htmlspecialchars($promo['description']) ?></p>
                                         <p class="text-blue-500 font-semibold mt-2">Diskon: <?= htmlspecialchars($promo['discount']) ?>%</p>
                                     </div>
-                                    <a href="<?= $buttonLink ?>" class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition text-center">
-                                        Lihat <?= htmlspecialchars($shortCategory) ?>
-                                    </a>
+                                    <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition">
+                                        Dapatkan Sekarang
+                                    </button>
                                 </div>
                             </div>
+
                         <?php endwhile; ?>
                     </div>
                 </div>
             </section>
         </div>
         <!-- Footer -->
-        <?php include "../layout/footer.php" ?>
+        <?php include "layout/footer.php" ?>
 
 </body>
 

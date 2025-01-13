@@ -21,6 +21,6 @@
 <!-- Footer -->
 <footer class="bg-gray-800 py-6">
     <div class="container mx-auto text-center text-gray-400">
-        <p>&copy; 2024 Klinik Kecantikan. Semua Hak Dilindungi.</p>
+        <p>&copy; 2024 Azra Beauty Clinic. Copyright.</p>
     </div>
 </footer>

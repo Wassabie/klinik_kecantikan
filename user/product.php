@@ -35,6 +35,7 @@ include '../assets/db/database.php';
                 $query = "SELECT 
                             products.id, 
                             products.name, 
+                            products.category, 
                             products.price, 
                             products.stock, 
                             products.image, 
@@ -78,7 +79,10 @@ include '../assets/db/database.php';
                             <?php endif; ?>
                         </div>
                         <div class="p-6 flex flex-col bg-gradient-to-r from-blue-100 to-blue-200 min-h-[300px]">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2"><?= htmlspecialchars($product['name']) ?></h3>
+                            <h3 class="text-xl font-bold text-gray-800 "><?= htmlspecialchars($product['name']) ?></h3>
+                            <p class="text-lg font-semibold mb-1">Kategori: 
+                                <?= htmlspecialchars(str_replace('Product-', '', $product['category'])) ?>
+                            </p>
                             <p class="text-gray-600 text-sm flex-grow">Stok: <?= htmlspecialchars($product['stock']) ?></p>
                             <?php if ($isPromoValid): ?>
                                 <p class="text-gray-400 line-through text-sm mt-2">Rp <?= number_format($product['price'], 0, ',', '.') ?></p>
