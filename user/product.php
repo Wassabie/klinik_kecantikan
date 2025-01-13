@@ -77,7 +77,7 @@ include '../assets/db/database.php';
                                 </span>
                             <?php endif; ?>
                         </div>
-                        <div class="p-6 flex flex-col bg-gradient-to-r from-blue-100 to-blue-200 min-h-[220px]">
+                        <div class="p-6 flex flex-col bg-gradient-to-r from-blue-100 to-blue-200 min-h-[300px]">
                             <h3 class="text-xl font-bold text-gray-800 mb-2"><?= htmlspecialchars($product['name']) ?></h3>
                             <p class="text-gray-600 text-sm flex-grow">Stok: <?= htmlspecialchars($product['stock']) ?></p>
                             <?php if ($isPromoValid): ?>
