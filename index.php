@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azra Beauty Clinic</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
 
 
@@ -14,23 +14,23 @@
 
 <body>
 
-<!--Font Judul-->
-<style>
-  .font-playwrite {
-    font-family: "Playwrite AU SA", serif;
-  }
-</style>
-<!--Font Judul-->
+    <!--Font Judul-->
+    <style>
+        .font-playwrite {
+            font-family: "Playwrite AU SA", serif;
+        }
+    </style>
+    <!--Font Judul-->
 
-<nav class="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 shadow-md text-blue-700 py-4 px-8 rounded-lg">
+    <nav class="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 shadow-md text-blue-700 py-4 px-8 rounded-lg">
         <div class="mx-auto px-8 py-5 flex justify-between items-center">
 
             <a href="#" class="md:text-4xl font-bold font-playwrite">Azra Beauty Clinic</a>
-            
+
             <div class="flex items-center space-x-4 md:space-x-6">
                 <a href="login.php"
-                class="inline-block bg-blue-400 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg shadow-md transition duration-300 ease-in-out transform hover:bg-blue-500 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200 focus:ring-offset-2">
-                LOGIN
+                    class="inline-block bg-blue-400 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg shadow-md transition duration-300 ease-in-out transform hover:bg-blue-500 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-200 focus:ring-offset-2">
+                    LOGIN
                 </a>
             </div>
         </div>
@@ -142,14 +142,14 @@
 
     <!-- Contact Section -->
     <section id="kontak" class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-20">
-    <div class="container mx-auto text-center">
-        <h3 class="text-3xl font-bold text-gray-800 mb-6">Kontak Kami</h3>
-        <p class="text-gray-700 mb-6">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
-        <a  class="fa-brands fa-instagram fa-2x"></a>
-        <a href="https://wa.me/6285157778099" class="ml-4 fa-brands fa-whatsapp fa-2x"></a>
-        <a href="mailto:info@klinik.com" class="mt-4 block text-blue-500 font-bold text-lg">info@klinik.com</a>
-    </div>
-</section>
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6">Kontak Kami</h3>
+            <p class="text-gray-700 mb-6">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
+            <a class="fa-brands fa-instagram fa-2x"></a>
+            <a href="https://wa.me/6285157778099" class="ml-4 fa-brands fa-whatsapp fa-2x"></a>
+            <a href="mailto:info@klinik.com" class="mt-4 block text-blue-500 font-bold text-lg">info@klinik.com</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 py-6">
