@@ -1,3 +1,9 @@
+<?php
+include('assets/db/database.php');
+$today = date("Y-m-d");
+$activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,169 +14,219 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <style>
+        .text-blue-600 {
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);
+        }
+    </style>
 
 
 </head>
 
 <body>
+    <div class="bg-[url('uploads/rumah_sakit.jpg')] bg-cover bg-center min-h-screen">
 
-    <!--Font Judul-->
-    <style>
-        .font-playwrite {
-            font-family: "Playwrite AU SA", serif;
-        }
-    </style>
-    <!--Font Judul-->
+        <!-- Navbar -->
+        <?php include "layout/navbar2.php" ?>
 
-    <!--Navbar-->
-    <?php include "layout/navbar2.php" ?>
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-20">
-        <div class="container mx-auto text-center px-6 lg:px-20">
-            <h2 class="text-4xl font-bold text-blue-600 mb-6">
-                Perawatan Diri Terbaik untuk Anda
-            </h2>
-            <p class="text-xl text-gray-700 text-lg max-w-4xl mx-auto">
-                Kami memahami bahwa setiap orang memiliki kebutuhan kulit yang unik. Oleh karena itu, kami hadir dengan rangkaian perawatan terbaik yang dirancang khusus untuk membantu Anda mendapatkan kulit yang sehat, cerah, dan bercahaya. Dengan teknologi terkini dan tenaga ahli yang profesional, kami siap memberikan pengalaman perawatan yang aman, nyaman, dan memuaskan. Percayakan kebutuhan kulit Anda pada kami, dan nikmati hasil yang nyata. Kulit sehat bukan lagi impian, tapi sebuah kenyataan yang bisa Anda wujudkan bersama kami. ✨
-            </p>
-        </div>
-    </section>
-
-
-
-    <!-- About Section -->
-    <section id="tentang" class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-20">
-        <div class="container mx-auto text-center">
-            <h3 class="text-4xl font-bold text-blue-600 mb-6">Tentang Kami</h3>
-            <p class=" text-xl text-gray-700 max-w-7xl mx-auto">Selamat datang di klinik kecantikan terpercaya yang telah menjadi pilihan utama pelanggan selama lebih dari 10 tahun. Kami hadir dengan komitmen kuat untuk membantu Anda meraih kulit yang sehat, cerah, dan memancarkan kepercayaan diri. Dengan dukungan tenaga ahli yang berpengalaman dan didukung oleh teknologi perawatan kulit terkini, kami memastikan bahwa setiap pelanggan mendapatkan layanan terbaik dan hasil yang memuaskan.
-
-                Kami percaya bahwa perawatan kulit bukan sekadar tentang penampilan, tetapi juga bagian penting dari kesehatan dan kebahagiaan Anda. Oleh karena itu, kami menyediakan berbagai layanan perawatan mulai dari facial, terapi anti-aging, hingga solusi untuk masalah kulit spesifik, semuanya disesuaikan dengan kebutuhan unik Anda.
-
-                Setiap langkah perawatan dirancang untuk memberikan pengalaman yang nyaman dan hasil yang optimal. Klinik kami juga mengutamakan kebersihan, keamanan, dan kualitas dalam setiap prosedur, memastikan Anda merasa tenang dan percaya diri selama proses perawatan.
-
-                Percayakan perjalanan perawatan kulit Anda kepada kami. Bersama, kita akan mewujudkan impian Anda untuk memiliki kulit yang sehat, bercahaya, dan tampak lebih muda. Mari ciptakan versi terbaik dari diri Anda dengan perawatan terbaik kami! ✨</p>
-        </div>
-    </section>
-
-    <!-- Cabang Toko -->
-    <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-10 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-blue-600 mb-6">Cabang Klinik Kami</h2>
-            <p class="text-lg text-gray-600 mb-10">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.
-            </p>
-        </div>
-
-        <!-- Grid untuk cabang -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-10">
-            <!-- Card Cabang -->
-            <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="uploads/Rumah-Sakit1.jpg" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">Cabang Jakarta</h3>
-                    <p class="text-gray-600 text-sm mt-2">Alamat: Jl. Sudirman No. 45, Jakarta Pusat. Melayani sejak
-                        2010.</p>
-                </div>
-            </div>
-
-            <!-- Card Cabang -->
-            <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="uploads/Rumah-Sakit2.jpg" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">Cabang Bandung</h3>
-                    <p class="text-gray-600 text-sm mt-2">Alamat: Jl. Dago No. 78, Bandung. Dikenal dengan layanan
-                        unggulan.</p>
-                </div>
-            </div>
-
-            <!-- Card Cabang -->
-            <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="uploads/Rumah-Sakit3.jpg" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-lg font-semibold text-gray-800">Cabang Surabaya</h3>
-                    <p class="text-gray-600 text-sm mt-2">Alamat: Jl. Tunjungan No. 32, Surabaya. Pelayanan 24/7.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-10">
-        <div class="container mx-auto text-center px-10">
-            <h3 class="text-3xl font-bold text-blue-600 mb-10">Apa Kata Pelanggan Kami</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <p class="text-gray-600 italic">"Layanan di klinik ini luar biasa! Kulit saya jadi lebih sehat."</p>
-                    <h4 class="mt-4 text-blue-500 font-bold">- Sarah</h4>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <p class="text-gray-600 italic">"Tenaga ahli yang profesional dan ramah. Sangat direkomendasikan!"
-                    </p>
-                    <h4 class="mt-4 text-blue-500 font-bold">- Amanda</h4>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <p class="text-gray-600 italic">"Hasil yang memuaskan. Saya pasti akan kembali lagi."</p>
-                    <h4 class="mt-4 text-blue-500 font-bold">- Diana</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-10">
-        <div class="container mx-auto text-center px-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <p class="text-gray-600 italic">"Layanan di klinik ini luar biasa! Kulit saya jadi lebih sehat."</p>
-                    <h4 class="mt-4 text-blue-500 font-bold">- Sarah</h4>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <p class="text-gray-600 italic">"Tenaga ahli yang profesional dan ramah. Sangat direkomendasikan!"
-                    </p>
-                    <h4 class="mt-4 text-blue-500 font-bold">- Amanda</h4>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-6">
-                    <p class="text-gray-600 italic">"Hasil yang memuaskan. Saya pasti akan kembali lagi."</p>
-                    <h4 class="mt-4 text-blue-500 font-bold">- Diana</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="kontak" class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-20">
-        <div class="container mx-auto text-center">
-            <h3 class="text-3xl font-bold text-gray-800 mb-6">Kontak Kami</h3>
-            <p class=" text-l text-gray-700 mb-6">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
-            <div class="flex flex-col items-center space-y-4"> 
-                <div class="flex items-center justify-center space-x-6">
-                    <div class="flex flex-col items-center space-y-4">
-                        <!-- Baris Ikon -->
-                        <div class="flex items-center justify-center space-x-6">
-                            <!-- Instagram -->
-                            <a href="https://www.instagram.com" class="fa-brands fa-instagram fa-2x text-gray-600 hover:text-pink-500 transition-transform transform hover:scale-110"></a>
-
-                            <!-- WhatsApp -->
-                            <a href="https://wa.me/6285157778099" class="fa-brands fa-whatsapp fa-2x text-gray-600 hover:text-green-500 transition-transform transform hover:scale-110"></a>
+        <!-- Carousel -->
+        <div class="relative mx-auto mt-10 max-w-7xl px-6">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <?php while ($promo = $activePromos->fetch_assoc()): ?>
+                        <div class="swiper-slide relative">
+                            <img src="../uploads/<?= $promo['image'] ?>" alt="<?= htmlspecialchars($promo['title']) ?>"
+                                class="w-full h-[550px] object-cover rounded-xl shadow-lg">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-xl p-6 flex flex-col justify-end">
+                                <h2 class="text-2xl font-bold text-white mb-2"><?= htmlspecialchars($promo['title']) ?></h2>
+                                <p class="text-gray-300 text-sm mb-4"><?= htmlspecialchars($promo['description']) ?></p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-blue-400 font-semibold">Diskon: <?= $promo['discount'] ?>%</span>
+                                    <span class="text-xs text-gray-400">Berlaku hingga: <?= date("d M Y", strtotime($promo['valid_until'])) ?></span>
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- Email -->
-                        <a href="mailto:info@klinik.com" class="text-blue-500 font-bold text-lg hover:text-blue-700 transition-colors">
-                            info@klinik.com
-                        </a>
-                    </div>
-
+                    <?php endwhile; ?>
                 </div>
+                <!-- Tombol Navigasi -->
+                <div class="swiper-button-next !text-white !text-3xl !right-4 !inset-y-1/2"></div>
+                <div class="swiper-button-prev !text-white !text-3xl !left-4 !inset-y-1/2"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
 
+
+        <!-- Deskripsi Klinik -->
+        <section class="mt-10 max-w-7xl mx-auto px-6">
+            <div class="px-10 py-6 rounded-xl shadow-xl">
+                <h2 class="text-6xl font-bold text-blue-600 mb-8 text-center font-playwrite relative">
+                    Azra Beauty Clinic
+                    <span class="absolute inset-0 text-transparent -z-10 bg-blue-300/50 rounded-lg blur-md"></span>
+                </h2>
+                <p class="text-gray-700 text-lg mb-4 text-justify">
+                    Kami adalah klinik kecantikan terpercaya yang berdedikasi untuk membantu Anda tampil cantik dan percaya diri.
+                    Dengan pengalaman bertahun-tahun dan tenaga ahli profesional, kami menawarkan berbagai perawatan kulit, wajah,
+                    dan tubuh yang dirancang khusus untuk kebutuhan Anda.
+                </p>
+                <div class="grid grid-cols-2 gap-6 text-gray-700">
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <strong>Perawatan Berkualitas Tinggi:</strong> Kami menggunakan teknologi terbaru dan produk berkualitas untuk memastikan hasil terbaik bagi Anda.
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <strong>Tenaga Ahli Profesional:</strong> Tim kami terdiri dari dokter dan terapis yang berpengalaman di bidang estetika dan dermatologi.
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <strong>Lingkungan Nyaman:</strong> Kami menyediakan fasilitas yang nyaman dan modern untuk pengalaman perawatan yang menyenangkan.
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <strong>Pendekatan Personal:</strong> Setiap pelanggan kami adalah istimewa. Kami menawarkan konsultasi untuk merancang perawatan yang sesuai dengan Anda.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cabang Toko -->
+        <section class="mt-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Cabang Klinik Kami</h2>
+                <p class="text-gray-600 text-lg">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.</p>
             </div>
 
-        </div>
-    </section>
+            <!-- Grid untuk cabang -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card Cabang -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="uploads/Rumah-Sakit1.jpg" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800">Cabang Jakarta</h3>
+                        <p class="text-gray-600 mt-2">Alamat: Jl. Sudirman No. 45, Jakarta Pusat. Melayani sejak 2010.</p>
+                    </div>
+                </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
-        <div class="container mx-auto text-center text-gray-400">
-            <p>&copy; 2024 Azra Beauty Clinic. Copyright.</p>
-        </div>
-    </footer>
+                <!-- Card Cabang -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="uploads/Rumah-Sakit2.jpg" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800">Cabang Bandung</h3>
+                        <p class="text-gray-600 mt-2">Alamat: Jl. Dago No. 78, Bandung. Dikenal dengan layanan unggulan.</p>
+                    </div>
+                </div>
+
+                <!-- Card Cabang -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="uploads/Rumah-Sakit3.jpg" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-800">Cabang Surabaya</h3>
+                        <p class="text-gray-600 mt-2">Alamat: Jl. Tunjungan No. 32, Surabaya. Pelayanan 24/7.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil Dokter -->
+        <section class="mt-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Dokter Kami</h2>
+                <p class="text-gray-600 text-lg">Kami memiliki dokter berpengalaman</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <?php
+                $doctors = [
+                    [
+                        'name' => 'dr. Azra Sihombing',
+                        'specialty' => 'Spesialis Dermatologi & Estetika',
+                        'description' => 'Memiliki pengalaman lebih dari 10 tahun di bidang perawatan kulit dan kecantikan.',
+                        'image' => 'uploads/alemak.png'
+                    ],
+                    [
+                        'name' => 'dr. Adit Tampubulon',
+                        'specialty' => 'Spesialis Dermatologi & Estetika',
+                        'description' => 'Ahli estetika dengan pendekatan personal yang fokus pada kebutuhan pasien.',
+                        'image' => 'uploads/assalamualikum-bro.jpg'
+                    ],
+                    [
+                        'name' => 'dr. Zidan Rajagukguk',
+                        'specialty' => 'Spesialis Dermatologi & Estetika',
+                        'description' => 'Berkomitmen memberikan solusi terbaik dalam estetika kulit.',
+                        'image' => 'https://via.placeholder.com/150'
+                    ],
+                    [
+                        'name' => 'dr. Rama Raja Iblis',
+                        'specialty' => 'Spesialis Susuk',
+                        'description' => 'Ahli dalam memberikan pelayanan terbaik untuk estetika supernatural.',
+                        'image' => 'uploads/harimau_duduk.png'
+                    ]
+                ];
+                foreach ($doctors as $doctor): ?>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
+                        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-500">
+                            <img src="<?= $doctor['image'] ?>" alt="<?= htmlspecialchars($doctor['name']) ?>" class="w-full h-full object-cover">
+                        </div>
+                        <h2 class="mt-4 text-xl font-bold text-gray-800"><?= htmlspecialchars($doctor['name']) ?></h2>
+                        <p class="text-sm text-gray-500"><?= htmlspecialchars($doctor['specialty']) ?></p>
+                        <p class="mt-4 text-gray-600 text-center"><?= htmlspecialchars($doctor['description']) ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="mt-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">Apa Kata Pelanggan Kami</h3>
+                <p class="text-gray-600 text-lg">Dengarkan pengalaman mereka yang sudah mencoba layanan kami.</p>
+            </div>
+
+            <!-- Grid untuk testimonial -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <?php
+                // Array data testimonial
+                $testimonials = [
+                    ["message" => "Layanan di klinik ini luar biasa! Kulit saya jadi lebih sehat.", "name" => "Sarah"],
+                    ["message" => "Tenaga ahli yang profesional dan ramah. Sangat direkomendasikan!", "name" => "Amanda"],
+                    ["message" => "Hasil yang memuaskan. Saya pasti akan kembali lagi.", "name" => "Diana"],
+                    ["message" => "Perawatan yang sangat mendetail dan efektif. Terima kasih!", "name" => "Budi"],
+                    ["message" => "Suasana klinik yang nyaman membuat saya merasa rileks.", "name" => "Intan"],
+                    ["message" => "Produk yang digunakan berkualitas tinggi dan cocok untuk kulit saya.", "name" => "Rina"],
+                ];
+
+                // Looping untuk menampilkan testimonial
+                foreach ($testimonials as $testimonial) {
+                    echo '<div class="bg-white shadow-md rounded-lg p-6">';
+                    echo '<p class="text-gray-600 italic">"' . $testimonial['message'] . '"</p>';
+                    echo '<h4 class="mt-4 text-blue-500 font-bold">- ' . $testimonial['name'] . '</h4>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <?php include "layout/footer.php" ?>
+
+        <!-- Script Swiper -->
+        <script>
+            const swiper = new Swiper('.mySwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        </script>
+    </div>
 </body>
 
 </html>
