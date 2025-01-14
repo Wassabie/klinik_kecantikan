@@ -1,10 +1,9 @@
 <?php
-include '../auth.php';
-include '../assets/db/database.php';
-
+include('../assets/db/database.php');
 $today = date("Y-m-d");
 $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,19 +13,19 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
     <title>Azra Beauty Clinic</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <style>
         .text-blue-600 {
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);
         }
-
-
     </style>
+
+
 </head>
 
-<body class="bg-gray-100">
-    <!-- Background -->
+<body>
     <div class="bg-[url('../uploads/rumah_sakit.jpg')] bg-cover bg-center min-h-screen">
 
         <!-- Navbar -->
@@ -67,8 +66,8 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
                     <span class="absolute inset-0 text-transparent -z-10 bg-blue-300/50 rounded-lg blur-md"></span>
                 </h2>
                 <p class="text-gray-700 text-lg mb-4 text-justify">
-                    Kami adalah klinik kecantikan terpercaya yang berdedikasi untuk membantu Anda tampil cantik dan percaya diri. 
-                    Dengan pengalaman bertahun-tahun dan tenaga ahli profesional, kami menawarkan berbagai perawatan kulit, wajah, 
+                    Kami adalah klinik kecantikan terpercaya yang berdedikasi untuk membantu Anda tampil cantik dan percaya diri.
+                    Dengan pengalaman bertahun-tahun dan tenaga ahli profesional, kami menawarkan berbagai perawatan kulit, wajah,
                     dan tubuh yang dirancang khusus untuk kebutuhan Anda.
                 </p>
                 <div class="grid grid-cols-2 gap-6 text-gray-700">
@@ -88,8 +87,59 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
             </div>
         </section>
 
+        <!-- Cabang Toko -->
+        <section class="mt-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-black mb-4">Cabang Klinik Kami</h2>
+                <p class="text-black font-bold text-lg">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.</p>
+            </div>
+
+            <!-- Grid untuk cabang -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card Cabang -->
+                <a href="https://maps.app.goo.gl/H3Zs4RwApyziRurq5" target="_blank" class="block">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="../uploads/Rumah-Sakit1.jpg" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Cabang Jakarta</h3>
+                            <p class="text-gray-600 mt-2">Alamat: Jl. Sudirman No. 45, Jakarta Pusat. Melayani sejak 2010.</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <!-- Card Cabang -->
+                <a href="https://maps.app.goo.gl/H3Zs4RwApyziRurq5" target="_blank" class="block">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="../uploads/Rumah-Sakit2.jpg" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Cabang Bandung</h3>
+                            <p class="text-gray-600 mt-2">Alamat: Jl. Dago No. 78, Bandung. Dikenal dengan layanan unggulan.</p>
+                        </div>
+                    </div>
+                </a>
+
+
+                <!-- Card Cabang -->
+                <a href="https://maps.app.goo.gl/H3Zs4RwApyziRurq5" target="_blank" class="block">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="../uploads/Rumah-Sakit3.jpg" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Cabang Surabaya</h3>
+                            <p class="text-gray-600 mt-2">Alamat: Jl. Tunjungan No. 32, Surabaya. Pelayanan 24/7.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </section>
+
         <!-- Profil Dokter -->
         <section class="mt-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-black mb-4">Dokter Kami</h2>
+                <p class="text-black font-bold text-lg">Kami memiliki dokter berpengalaman</p>
+            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <?php
                 $doctors = [
@@ -109,7 +159,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
                         'name' => 'dr. Zidan Rajagukguk',
                         'specialty' => 'Spesialis Dermatologi & Estetika',
                         'description' => 'Berkomitmen memberikan solusi terbaik dalam estetika kulit.',
-                        'image' => 'https://via.placeholder.com/150'
+                        'image' => '../https://via.placeholder.com/150'
                     ],
                     [
                         'name' => 'dr. Rama Raja Iblis',
@@ -128,6 +178,37 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
                         <p class="mt-4 text-gray-600 text-center"><?= htmlspecialchars($doctor['description']) ?></p>
                     </div>
                 <?php endforeach; ?>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="mt-10 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-black mb-4">Apa Kata Pelanggan Kami</h3>
+                <p class="text-black font-bold text-lg">Dengarkan pengalaman mereka yang sudah mencoba layanan kami.</p>
+            </div>
+
+            <!-- Grid untuk testimonial -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <?php
+                // Array data testimonial
+                $testimonials = [
+                    ["message" => "Layanan di klinik ini luar biasa! Kulit saya jadi lebih sehat.", "name" => "Sarah"],
+                    ["message" => "Tenaga ahli yang profesional dan ramah. Sangat direkomendasikan!", "name" => "Amanda"],
+                    ["message" => "Hasil yang memuaskan. Saya pasti akan kembali lagi.", "name" => "Diana"],
+                    ["message" => "Perawatan yang sangat mendetail dan efektif. Terima kasih!", "name" => "Budi"],
+                    ["message" => "Suasana klinik yang nyaman membuat saya merasa rileks.", "name" => "Intan"],
+                    ["message" => "Produk yang digunakan berkualitas tinggi dan cocok untuk kulit saya.", "name" => "Rina"],
+                ];
+
+                // Looping untuk menampilkan testimonial
+                foreach ($testimonials as $testimonial) {
+                    echo '<div class="bg-white shadow-md rounded-lg p-6">';
+                    echo '<p class="text-gray-600 italic">"' . $testimonial['message'] . '"</p>';
+                    echo '<h4 class="mt-4 text-blue-500 font-bold">- ' . $testimonial['name'] . '</h4>';
+                    echo '</div>';
+                }
+                ?>
             </div>
         </section>
 
@@ -156,4 +237,5 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
         </script>
     </div>
 </body>
+
 </html>

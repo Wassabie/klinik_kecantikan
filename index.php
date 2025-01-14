@@ -90,46 +90,55 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
         <!-- Cabang Toko -->
         <section class="mt-10 max-w-7xl mx-auto px-6">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Cabang Klinik Kami</h2>
-                <p class="text-gray-600 text-lg">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.</p>
+                <h2 class="text-3xl font-bold text-black mb-4">Cabang Klinik Kami</h2>
+                <p class="text-black font-bold text-lg">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.</p>
             </div>
 
             <!-- Grid untuk cabang -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card Cabang -->
-                <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="uploads/Rumah-Sakit1.jpg" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-semibold text-gray-800">Cabang Jakarta</h3>
-                        <p class="text-gray-600 mt-2">Alamat: Jl. Sudirman No. 45, Jakarta Pusat. Melayani sejak 2010.</p>
+                <a href="https://maps.app.goo.gl/H3Zs4RwApyziRurq5" target="_blank" class="block">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="uploads/Rumah-Sakit1.jpg" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Cabang Jakarta</h3>
+                            <p class="text-gray-600 mt-2">Alamat: Jl. Sudirman No. 45, Jakarta Pusat. Melayani sejak 2010.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
+
 
                 <!-- Card Cabang -->
-                <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="uploads/Rumah-Sakit2.jpg" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-semibold text-gray-800">Cabang Bandung</h3>
-                        <p class="text-gray-600 mt-2">Alamat: Jl. Dago No. 78, Bandung. Dikenal dengan layanan unggulan.</p>
+                <a href="https://maps.app.goo.gl/H3Zs4RwApyziRurq5" target="_blank" class="block">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="uploads/Rumah-Sakit2.jpg" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Cabang Bandung</h3>
+                            <p class="text-gray-600 mt-2">Alamat: Jl. Dago No. 78, Bandung. Dikenal dengan layanan unggulan.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
+
 
                 <!-- Card Cabang -->
-                <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                    <img src="uploads/Rumah-Sakit3.jpg" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-lg font-semibold text-gray-800">Cabang Surabaya</h3>
-                        <p class="text-gray-600 mt-2">Alamat: Jl. Tunjungan No. 32, Surabaya. Pelayanan 24/7.</p>
+                <a href="https://maps.app.goo.gl/H3Zs4RwApyziRurq5" target="_blank" class="block">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                        <img src="uploads/Rumah-Sakit3.jpg" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-lg font-semibold text-gray-800">Cabang Surabaya</h3>
+                            <p class="text-gray-600 mt-2">Alamat: Jl. Tunjungan No. 32, Surabaya. Pelayanan 24/7.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
+
         </section>
 
         <!-- Profil Dokter -->
         <section class="mt-10 max-w-7xl mx-auto px-6">
             <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Dokter Kami</h2>
-                <p class="text-gray-600 text-lg">Kami memiliki dokter berpengalaman</p>
+                <h2 class="text-3xl font-bold text-black mb-4">Dokter Kami</h2>
+                <p class="text-black font-bold text-lg">Kami memiliki dokter berpengalaman</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <?php
@@ -175,8 +184,8 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
         <!-- Testimonials Section -->
         <section class="mt-10 max-w-7xl mx-auto px-6">
             <div class="text-center mb-10">
-                <h3 class="text-3xl font-bold text-gray-800 mb-4">Apa Kata Pelanggan Kami</h3>
-                <p class="text-gray-600 text-lg">Dengarkan pengalaman mereka yang sudah mencoba layanan kami.</p>
+                <h3 class="text-3xl font-bold text-black mb-4">Apa Kata Pelanggan Kami</h3>
+                <p class="text-black font-bold text-lg">Dengarkan pengalaman mereka yang sudah mencoba layanan kami.</p>
             </div>
 
             <!-- Grid untuk testimonial -->

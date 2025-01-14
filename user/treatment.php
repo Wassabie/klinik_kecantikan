@@ -82,7 +82,7 @@ include '../assets/db/database.php';
                                 </div>
                                 <div class="p-6 flex flex-col bg-gradient-to-r from-blue-100 to-blue-200 min-h-[300px]">
                                     <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($treatment['name']) ?></h3>
-                                    <p class="text-lg font-bold mb-1">Kategori:  
+                                    <p class="text-lg font-bold mb-1">Kategori:
                                         <?= htmlspecialchars(str_replace('Treatment-', '', $treatment['category'])) ?>
                                     </p>
                                     <p class="text-gray-600 text-sm flex-grow"><?= htmlspecialchars($treatment['description']) ?></p>
@@ -90,9 +90,13 @@ include '../assets/db/database.php';
                                         <p class="text-gray-400 line-through text-sm mt-2">Rp <?= number_format($treatment['price'], 0, ',', '.') ?></p>
                                     <?php endif; ?>
                                     <p class="text-blue-500 text-lg font-bold mt-1">Rp <?= number_format($discountedPrice, 0, ',', '.') ?></p>
-                                    <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition flex items-center justify-center gap-2">
-                                        <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
-                                    </button>
+                                    <a href="https://wa.me/6281234567890" target="_blank" class="block mt-4 w-full">
+                                        <button class="w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+                                            <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+                                        </button>
+                                    </a>
+
+
                                 </div>
                             </div>
                         <?php endwhile; ?>

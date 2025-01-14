@@ -6,8 +6,8 @@
 <!-- Contact Section -->
 <section id="kontak" class="py-20">
     <div class="container mx-auto text-center">
-        <h3 class="text-3xl font-bold text-gray-800 mb-6">Kontak Kami</h3>
-        <p class="text-gray-700 mb-2">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
+        <h3 class="text-3xl font-bold text-gray-800 mb-4">Kontak Kami</h3>
+        <p class="text-gray-700 mb-6">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
         <a href="#" class="hover:text-indigo-700">
             <i class="fa-brands fa-instagram fa-2x"></i>
         </a>
