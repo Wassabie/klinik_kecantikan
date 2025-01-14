@@ -21,12 +21,12 @@
     <div class="flex items-center space-x-4 md:space-x-5">
       <ul class="hidden md:flex space-x-4 md:space-x-1">
         <li>
-          <a href="user-home.php" class="rounded-md px-3 py-2 text-lg font-medium hover:bg-blue-500 hover:bg-opacity-80">
+          <a href="index.php" class="rounded-md px-3 py-2 text-lg font-medium hover:bg-blue-500 hover:bg-opacity-80">
             Home
           </a>
         </li>
         <li>
-          <a href="promo_login.php" class="rounded-md px-3 py-2 text-lg font-medium hover:bg-blue-500 hover:bg-opacity-80">
+          <a href="promo-depan.php" class="rounded-md px-3 py-2 text-lg font-medium hover:bg-blue-500 hover:bg-opacity-80">
             Promo
           </a>
         </li>

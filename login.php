@@ -76,10 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 Login
             </button>
         </form>
-        <div class="text-center mt-4 text-sm text-gray-600">
-            Belum punya akun? 
-            <a href="register.php" class="text-blue-500 hover:underline">Daftar di sini</a>
-        </div>
     </div>
 </body>
 </html>

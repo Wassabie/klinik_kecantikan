@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="mb-4">
                     <label for="category" class="block text-gray-700 font-semibold mb-2">Kategori</label>
-                    <input type="text" name="category" id="category" class="w-full px-4 py-2 border rounded-md" placeholder="Contoh: Kosmetik" required>
+                    <input type="text" name="category" id="category" class="w-full px-4 py-2 border rounded-md" placeholder="Contoh: Product-Kosmetik" required>
                 </div>
                 <div class="mb-4">
                     <label for="image" class="block text-gray-700 font-semibold mb-2">Gambar Produk</label>

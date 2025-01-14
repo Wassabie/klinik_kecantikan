@@ -37,6 +37,7 @@ include '../assets/db/database.php';
                         $query = "SELECT 
                                         treatments.id, 
                                         treatments.name, 
+                                        treatments.category, 
                                         treatments.description, 
                                         treatments.price, 
                                         treatments.image, 
@@ -80,15 +81,18 @@ include '../assets/db/database.php';
                                     <?php endif; ?>
                                 </div>
                                 <div class="p-6 flex flex-col bg-gradient-to-r from-blue-100 to-blue-200 min-h-[300px]">
-                                    <h3 class="text-xl font-bold text-gray-800 mb-2"><?= htmlspecialchars($treatment['name']) ?></h3>
+                                    <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($treatment['name']) ?></h3>
+                                    <p class="text-lg font-bold mb-1">Kategori:  
+                                        <?= htmlspecialchars(str_replace('Treatment-', '', $treatment['category'])) ?>
+                                    </p>
                                     <p class="text-gray-600 text-sm flex-grow"><?= htmlspecialchars($treatment['description']) ?></p>
                                     <?php if ($isPromoValid): ?>
                                         <p class="text-gray-400 line-through text-sm mt-2">Rp <?= number_format($treatment['price'], 0, ',', '.') ?></p>
                                     <?php endif; ?>
                                     <p class="text-blue-500 text-lg font-bold mt-1">Rp <?= number_format($discountedPrice, 0, ',', '.') ?></p>
                                     <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition flex items-center justify-center gap-2">
-    <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
-</button>
+                                        <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+                                    </button>
                                 </div>
                             </div>
                         <?php endwhile; ?>
