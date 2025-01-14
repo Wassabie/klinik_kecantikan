@@ -31,7 +31,7 @@
             <h2 class="text-4xl font-bold text-blue-600 mb-6">
                 Perawatan Diri Terbaik untuk Anda
             </h2>
-            <p class="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto">
+            <p class="text-xl text-gray-700 text-lg max-w-4xl mx-auto">
                 Kami memahami bahwa setiap orang memiliki kebutuhan kulit yang unik. Oleh karena itu, kami hadir dengan rangkaian perawatan terbaik yang dirancang khusus untuk membantu Anda mendapatkan kulit yang sehat, cerah, dan bercahaya. Dengan teknologi terkini dan tenaga ahli yang profesional, kami siap memberikan pengalaman perawatan yang aman, nyaman, dan memuaskan. Percayakan kebutuhan kulit Anda pada kami, dan nikmati hasil yang nyata. Kulit sehat bukan lagi impian, tapi sebuah kenyataan yang bisa Anda wujudkan bersama kami. ✨
             </p>
         </div>
@@ -57,7 +57,7 @@
     <section class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-10 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-3xl font-bold text-blue-600 mb-6">Cabang Klinik Kami</h2>
-            <p class="text-gray-600 mb-10">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.
+            <p class="text-lg text-gray-600 mb-10">Kami hadir di berbagai lokasi untuk melayani Anda dengan pelayanan terbaik.
             </p>
         </div>
 
@@ -139,7 +139,7 @@
     <section id="kontak" class="bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 shadow-md py-20">
         <div class="container mx-auto text-center">
             <h3 class="text-3xl font-bold text-gray-800 mb-6">Kontak Kami</h3>
-            <p class=" text-lg text-gray-700 mb-6">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
+            <p class=" text-l text-gray-700 mb-6">Hubungi kami untuk konsultasi atau informasi lebih lanjut.</p>
             <div class="flex flex-col items-center space-y-4"> 
                 <div class="flex items-center justify-center space-x-6">
                     <div class="flex flex-col items-center space-y-4">
