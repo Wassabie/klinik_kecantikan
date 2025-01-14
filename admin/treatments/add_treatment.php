@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         Kembali
                     </a>
                     <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
-                        Tambah Promo
+                        Tambah Treatment
                     </button>
                 </div>
             </form>

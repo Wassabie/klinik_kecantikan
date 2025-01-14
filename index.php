@@ -169,28 +169,28 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
                 <?php
                 $doctors = [
                     [
-                        'name' => 'dr. Azra Sihombing',
+                        'name' => 'dr. Novalia von Zidane',
                         'specialty' => 'Spesialis Dermatologi & Estetika',
                         'description' => 'Memiliki pengalaman lebih dari 10 tahun di bidang perawatan kulit dan kecantikan.',
-                        'image' => 'uploads/alemak.png'
+                        'image' => 'uploads/doc1.jpg'
                     ],
                     [
-                        'name' => 'dr. Adit Tampubulon',
+                        'name' => 'dr. Azera Morales García',
                         'specialty' => 'Spesialis Dermatologi & Estetika',
                         'description' => 'Ahli estetika dengan pendekatan personal yang fokus pada kebutuhan pasien.',
-                        'image' => 'uploads/assalamualikum-bro.jpg'
+                        'image' => 'uploads/doc2.jpg'
                     ],
                     [
-                        'name' => 'dr. Zidan Rajagukguk',
+                        'name' => 'dr. Rini Aditya Pramesti',
                         'specialty' => 'Spesialis Dermatologi & Estetika',
                         'description' => 'Berkomitmen memberikan solusi terbaik dalam estetika kulit.',
-                        'image' => 'https://via.placeholder.com/150'
+                        'image' => 'uploads/doc3.jpg'
                     ],
                     [
-                        'name' => 'dr. Rama Raja Iblis',
-                        'specialty' => 'Spesialis Susuk',
-                        'description' => 'Ahli dalam memberikan pelayanan terbaik untuk estetika supernatural.',
-                        'image' => 'uploads/harimau_duduk.png'
+                        'name' => 'dr. Choi Rae Ma',
+                        'specialty' => 'Spesialis Trikologi',
+                        'description' => 'Ahli dalam memberikan pelayanan terbaik untuk kesehatan rambut.',
+                        'image' => 'uploads/doc4.jpg'
                     ]
                 ];
                 foreach ($doctors as $doctor): ?>
