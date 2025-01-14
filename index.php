@@ -21,6 +21,19 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);
         }
     </style>
+    <script>
+        // Fungsi untuk menampilkan modal ketika halaman dimuat
+        window.onload = function () {
+            const promoModal = document.getElementById('promoModal');
+            promoModal.style.display = 'flex'; // Tampilkan modal
+        };
+
+        // Fungsi untuk menutup modal
+        function closeModal() {
+            const promoModal = document.getElementById('promoModal');
+            promoModal.style.display = 'none'; // Sembunyikan modal
+        }
+    </script>
 
 
 </head>
@@ -30,6 +43,18 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
 
         <!-- Navbar -->
         <?php include "layout/navbar2.php" ?>
+
+        <!-- Modal Pop-Up Promo -->
+        <div id="promoModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden">
+            <div class="bg-white w-11/12 max-w-4xl rounded-lg p-10 shadow-lg text-center">
+                <h2 class="text-4xl font-bold text-blue-600 mb-6">Promo Spesial Hari Ini!</h2>
+                <p class="text-gray-700 mb-8 text-lg">Dapatkan diskon hingga 90% untuk semua layanan kecantikan kami. Jangan lewatkan kesempatan ini untuk tampil lebih percaya diri dengan kulit yang sehat dan bercahaya!</p>
+                <div class="flex justify-center gap-6">
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition" onclick="window.location.href='login.php'">Login Sekarang!</button>
+                    <button class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg text-lg hover:bg-gray-400 transition" onclick="closeModal()">Nanti Saja</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Carousel -->
         <div class="relative mx-auto mt-10 max-w-7xl px-6">
