@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             $stmt = $conn->prepare("UPDATE promos SET title = ?, description = ?, discount = ?, valid_until = ?, category = ?, image = ? WHERE id = ?");
-            $stmt->bind_param("sssssi", $title, $description, $discount, $valid_until, $category, $newImage, $id);
+            $stmt->bind_param("ssisssi", $title, $description, $discount, $valid_until, $category, $newImage, $id);
         } else {
             die("Gagal mengupload gambar baru.");
         }

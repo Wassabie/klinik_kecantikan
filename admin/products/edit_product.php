@@ -68,7 +68,7 @@ include '../../assets/db/database.php'; // Koneksi database
                         Kembali
                     </a>
                     <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
-                        Tambah Promo
+                        Edit Product
                     </button>
                 </div>
             </form>
