@@ -54,9 +54,9 @@ include 'assets/db/database.php';
                                         <p class="text-gray-600 text-sm mt-2"><?= htmlspecialchars($promo['description']) ?></p>
                                         <p class="text-blue-500 font-semibold mt-2">Diskon: <?= htmlspecialchars($promo['discount']) ?>%</p>
                                     </div>
-                                    <button class="mt-4 w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg hover:shadow-lg transition">
-                                        Dapatkan Sekarang
-                                    </button>
+                                    <a href="login.php" class="w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
+                                        Lihat Promo
+                                    </a>
                                 </div>
                             </div>
 
