@@ -31,13 +31,25 @@ include 'assets/db/database.php';
 
                     <!-- Grid for Promotions -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <?php
+                    <?php
                         // Query untuk mengambil data dari tabel promosi
                         $query = "SELECT * FROM promos WHERE valid_until >= CURDATE()";
                         $result = $conn->query($query);
 
                         // Loop untuk menampilkan setiap promosi
                         while ($promo = $result->fetch_assoc()):
+                            // Proses kategori
+                            $category = htmlspecialchars($promo['category']);
+                            $shortCategory = '';
+                            $buttonLink = '#';
+
+                            if (str_starts_with($category, 'Treatment-')) {
+                                $shortCategory = str_replace('Treatment-', '', $category);
+                                $buttonLink = 'treatment.php';
+                            } elseif (str_starts_with($category, 'Product-')) {
+                                $shortCategory = str_replace('Product-', '', $category);
+                                $buttonLink = 'product.php';
+                            }
                         ?>
                             <!-- Promo Card -->
                             <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
@@ -50,7 +62,7 @@ include 'assets/db/database.php';
                                 <div class="p-6 flex flex-col justify-between bg-gradient-to-r from-blue-100 to-blue-200 min-h-[300px]">
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($promo['title']) ?></h3>
-                                        <p class="text-lg font-semibold">Kategori: <?= htmlspecialchars($promo['category']) ?></p>
+                                        <p class="text-lg font-semibold">Kategori: <?= htmlspecialchars($shortCategory) ?></p>  
                                         <p class="text-gray-600 text-sm mt-2"><?= htmlspecialchars($promo['description']) ?></p>
                                         <p class="text-blue-500 font-semibold mt-2">Diskon: <?= htmlspecialchars($promo['discount']) ?>%</p>
                                     </div>
