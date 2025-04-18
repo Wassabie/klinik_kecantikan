@@ -80,7 +80,7 @@ include '../assets/db/database.php';
                                         </span>
                                     <?php endif; ?>
                                 </div>
-                                <div class="p-6 flex flex-col bg-gradient-to-r from-blue-100 to-blue-200 min-h-[300px]">
+                                <div class="p-6 flex flex-col bg-gradient-to-r from-blue-100 to-blue-200 min-h-[350px]">
                                     <h3 class="text-xl font-bold text-gray-800"><?= htmlspecialchars($treatment['name']) ?></h3>
                                     <p class="text-lg font-bold mb-1">Kategori:
                                         <?= htmlspecialchars(str_replace('Treatment-', '', $treatment['category'])) ?>

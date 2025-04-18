@@ -56,6 +56,17 @@ include('../assets/db/database.php'); // Koneksi database
             <!-- Konten Treatment -->
             <?php include "treatments/treatments.php"; ?>
         </section>
+
+        <!-- Manajemen Booking -->
+        <section id="booking" class="mb-12">
+            <div class="container mx-auto px-4 py-6">
+                <div class="bg-blue-300 shadow-lg rounded-lg p-6 mb-8 max-w-3xl mx-auto flex justify-center items-center">
+                    <h2 class="text-3xl font-bold text-gray-800 text-center">BOOKING</h2>
+                </div>
+            </div>
+            <!-- Konten Treatment -->
+            <?php include "booking/admin_booking.php"; ?>
+        </section>
     </div>
 </body>
 
