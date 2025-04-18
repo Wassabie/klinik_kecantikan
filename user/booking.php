@@ -37,13 +37,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validasi input
     if (empty($name) || empty($email) || empty($treatments_id) || empty($date) || empty($time)) {
-        $error_message = "❌ Semua field harus diisi.";
+        $error_message = "Harap lengkapi semua data booking.";
     } else {
+
+        // Simpan ke database / proses lainnya
+        $success_message = "Booking berhasil disimpan.";
+        // reset POST agar form tidak tersubmit ulang jika di-refresh
+        unset($_POST);
+
         // Validasi tanggal tidak boleh di masa lalu
         $today = date("Y-m-d");
         if ($date < $today) {
             $error_message = "❌ Tidak bisa booking untuk tanggal yang sudah lewat.";
         } else {
+
             // Periksa apakah treatments sudah terbooking pada waktu yang sama
             $stmt = $conn->prepare("SELECT * FROM booking_treatments WHERE date = ? AND time = ? AND treatments_id = ? AND status != 'cancelled'");
             $stmt->bind_param("ssi", $date, $time, $treatments_id);
@@ -110,14 +117,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </h2>
 
             <!-- Pesan Error/Sukses -->
-            <?php if (isset($error_message)): ?>
-                <div class="mb-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 flex items-center rounded-md">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                    </svg>
-                    <?php echo htmlspecialchars($error_message); ?>
+            <?php if (isset($error_message) && $error_message !== ''): ?>
+                <div class="mb-6 p-4 bg-red-100 border-l-4 border-red-500 text-red-700 rounded-md text-sm">
+                    <?= htmlspecialchars($error_message); ?>
                 </div>
-            <?php elseif (isset($success_message)): ?>
+            <?php elseif (isset($success_message) && $success_message !== ''): ?>
                 <div class="mb-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700 flex items-center rounded-md">
                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />

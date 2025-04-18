@@ -90,12 +90,11 @@ include '../assets/db/database.php';
                                         <p class="text-gray-400 line-through text-sm mt-2">Rp <?= number_format($treatment['price'], 0, ',', '.') ?></p>
                                     <?php endif; ?>
                                     <p class="text-blue-500 text-lg font-bold mt-1">Rp <?= number_format($discountedPrice, 0, ',', '.') ?></p>
-                                    <a href="https://wa.me/6281234567890" target="_blank" class="block mt-4 w-full">
+                                    <a href="booking.php" class="block mt-4 w-full">
                                         <button class="w-full bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-4 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2">
-                                            <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+                                            <i class="fa-solid fa-calendar-check"></i> Booking Sekarang
                                         </button>
                                     </a>
-
 
                                 </div>
                             </div>
