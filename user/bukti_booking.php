@@ -76,8 +76,17 @@ $booking = $result->fetch_assoc();
         </div>
 
         <!-- Footer & Print -->
+
+        <style>
+            @media print {
+                .print-hide {
+                    display: none;
+                }
+            }
+        </style>
+
         <div class="mt-10 text-center">
-            <button onclick="window.print()" class="bg-blue-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl shadow-md transition-all text-sm font-medium">
+            <button onclick="window.print()" class="bg-blue-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl shadow-md transition-all text-sm font-medium print-hide">
                 🖨️ Cetak Bukti Booking
             </button>
 
