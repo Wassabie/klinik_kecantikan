@@ -52,12 +52,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
           </a>
         </li>
         <li>
-          <a href="booking.php"
-            class="rounded-md px-3 py-2 text-lg font-medium hover:bg-blue-500 hover:bg-opacity-80 <?= $current_page == 'product.php' ? 'bg-blue-700' : '' ?>">
-            Booking
-          </a>
-        </li>
-        <li>
           <a href="../logout.php" class="rounded-md px-3 py-2 text-lg font-medium hover:bg-blue-500 hover:bg-opacity-80">
             Logout
           </a>
