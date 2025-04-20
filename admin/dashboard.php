@@ -60,10 +60,14 @@ include('../assets/db/database.php'); // Koneksi database
         <!-- Manajemen Booking -->
         <section id="booking" class="mb-12">
             <div class="container mx-auto px-4 py-6">
-                <div class="bg-blue-300 shadow-lg rounded-lg p-6 mb-8 max-w-3xl mx-auto flex justify-center items-center">
-                    <h2 class="text-3xl font-bold text-gray-800 text-center">BOOKING</h2>
+                <div class="bg-blue-300 shadow-lg rounded-lg p-6 mb-8 max-w-3xl mx-auto flex flex-col justify-center items-center space-y-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <h2 class="text-3xl font-bold text-gray-800 text-center">Booking</h2>
                 </div>
             </div>
+
             <!-- Konten Treatment -->
             <?php include "booking/admin_booking.php"; ?>
         </section>

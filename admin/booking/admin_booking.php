@@ -15,48 +15,91 @@ if (!isset($conn)) {
     die("Koneksi database gagal. Silakan periksa konfigurasi database di assets/db/database.php.");
 }
 
-// Ambil semua booking
-$query = "SELECT bt.*, t.name AS treatments_name FROM booking_treatments bt LEFT JOIN treatments t ON bt.treatments_id = t.id";
-$result = mysqli_query($conn, $query);
-
-if (!$result) {
-    die("Gagal mengambil data booking: " . mysqli_error($conn));
+// Fungsi untuk mengambil data booking (digunakan untuk refresh setelah update)
+function fetchBookings($conn)
+{
+    $query = "SELECT bt.*, t.name AS treatments_name FROM booking_treatments bt LEFT JOIN treatments t ON bt.treatments_id = t.id";
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        die("Gagal mengambil data booking: " . mysqli_error($conn));
+    }
+    return $result;
 }
+
+// Ambil data booking awal
+$result = fetchBookings($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $booking_id = (int)$_POST['booking_id'];
     $status = $_POST['status'];
 
-    // Validasi status
-    $valid_statuses = ['pending', 'confirmed', 'cancelled'];
-    if (!in_array($status, $valid_statuses)) {
-        echo "<div style='color:red;'>❌ Status tidak valid.</div>";
+    // Validasi booking_id
+    if ($booking_id <= 0) {
+        echo "<div style='color:red;'>❌ ID booking tidak valid.</div>";
     } else {
-        // Update status booking
-        $stmt = $conn->prepare("UPDATE booking_treatments SET status = ? WHERE id = ?");
-        $stmt->bind_param("si", $status, $booking_id);
-        if ($stmt->execute()) {
-            // Ambil data untuk email
-            $emailQuery = $conn->prepare("SELECT email, name, treatments_id FROM booking_treatments WHERE id = ?");
-            $emailQuery->bind_param("i", $booking_id);
-            $emailQuery->execute();
-            $emailResult = $emailQuery->get_result();
-            $emailData = $emailResult->fetch_assoc();
-
-            // Ambil nama treatment
-            $treatmentNameQuery = $conn->prepare("SELECT name FROM treatments WHERE id = ?");
-            $treatmentNameQuery->bind_param("i", $emailData['treatments_id']);
-            $treatmentNameQuery->execute();
-            $treatmentResult = $treatmentNameQuery->get_result();
-            $treatmentName = $treatmentResult->fetch_assoc()['name'];
-
-            // Kirim email pemberitahuan
-            $msg = "Halo {$emailData['name']},\n\nPemesanan treatment '$treatmentName' Anda telah diubah menjadi: $status.";
-            mail($emailData['email'], "Status Pemesanan Treatment", $msg);
-
-            echo "<div style='color:green;'>✅ Status booking telah diperbarui.</div>";
+        // Validasi status
+        $valid_statuses = ['pending', 'confirmed', 'cancelled'];
+        if (!in_array($status, $valid_statuses)) {
+            echo "<div style='color:red;'>❌ Status tidak valid.</div>";
         } else {
-            echo "<div style='color:red;'>❌ Terjadi kesalahan saat mengubah status booking: " . mysqli_error($conn) . "</div>";
+            // Cek apakah booking_id ada di database
+            $checkStmt = $conn->prepare("SELECT id FROM booking_treatments WHERE id = ?");
+            $checkStmt->bind_param("i", $booking_id);
+            $checkStmt->execute();
+            $checkResult = $checkStmt->get_result();
+
+            if ($checkResult->num_rows === 0) {
+                echo "<div style='color:red;'>❌ Booking dengan ID $booking_id tidak ditemukan.</div>";
+            } else {
+                // Update status booking
+                $stmt = $conn->prepare("UPDATE booking_treatments SET status = ? WHERE id = ?");
+                $stmt->bind_param("si", $status, $booking_id);
+                $stmt->execute();
+
+                // Periksa apakah ada baris yang diubah
+                if ($stmt->affected_rows > 0) {
+                    // Ambil data untuk email
+                    $emailQuery = $conn->prepare("SELECT email, name, treatments_id FROM booking_treatments WHERE id = ?");
+                    $emailQuery->bind_param("i", $booking_id);
+                    $emailQuery->execute();
+                    $emailResult = $emailQuery->get_result();
+                    $emailData = $emailResult->fetch_assoc();
+
+                    // Validasi apakah data booking ditemukan
+                    if ($emailData === null || !isset($emailData['name']) || !isset($emailData['email'])) {
+                        echo "<div style='color:red;'>❌ Gagal mengirim email: Data booking tidak ditemukan.</div>";
+                    } else {
+                        // Ambil nama treatment
+                        $treatmentName = "Unknown Treatment"; // Default jika treatment tidak ditemukan
+                        if (isset($emailData['treatments_id'])) {
+                            $treatmentNameQuery = $conn->prepare("SELECT name FROM treatments WHERE id = ?");
+                            $treatmentNameQuery->bind_param("i", $emailData['treatments_id']);
+                            $treatmentNameQuery->execute();
+                            $treatmentResult = $treatmentNameQuery->get_result();
+                            $treatmentRow = $treatmentResult->fetch_assoc();
+
+                            if ($treatmentRow !== null && isset($treatmentRow['name'])) {
+                                $treatmentName = $treatmentRow['name'];
+                            }
+                        }
+
+                        // Kirim email pemberitahuan
+                        $msg = "Halo {$emailData['name']},\n\nPemesanan treatment '$treatmentName' Anda telah diubah menjadi: $status.";
+                        if (!empty($emailData['email'])) {
+                            mail($emailData['email'], "Status Pemesanan Treatment", $msg);
+                        } else {
+                            echo "<div style='color:red;'>❌ Gagal mengirim email: Alamat email tidak tersedia.</div>";
+                        }
+
+                        echo "<div style='color:green;'>✅ Status booking telah diperbarui.</div>";
+                    }
+                } else {
+                    echo "<div style='color:red;'>❌ Tidak ada perubahan pada status booking. Mungkin status sudah sama atau data tidak ditemukan.</div>";
+                }
+
+                // Refresh data booking setelah update
+                $result = fetchBookings($conn);
+            }
         }
     }
 }
@@ -80,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <tr class="border-t hover:bg-gray-50 transition duration-200">
                     <td class="py-3 px-4"><?php echo $row['id']; ?></td>
                     <td class="py-3 px-4"><?php echo htmlspecialchars($row['name']); ?></td>
-                    <td class="py-3 px-4"><?php echo htmlspecialchars($row['treatments_name']); ?></td>
+                    <td class="py-3 px-4"><?php echo htmlspecialchars($row['treatments_name'] ?? 'Unknown Treatment'); ?></td>
                     <td class="py-3 px-4"><?php echo $row['date']; ?></td>
                     <td class="py-3 px-4"><?php echo $row['time']; ?></td>
                     <td class="py-3 px-4">

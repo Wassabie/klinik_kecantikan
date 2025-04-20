@@ -15,6 +15,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../assets/style.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <style>
         .text-blue-600 {
@@ -62,7 +63,7 @@ $activePromos = $conn->query("SELECT * FROM promos WHERE valid_until >= '$today'
                 <div class="swiper-wrapper">
                     <?php while ($promo = $activePromos->fetch_assoc()): ?>
                         <div class="swiper-slide relative">
-                            <img src="../uploads/<?= $promo['image'] ?>" alt="<?= htmlspecialchars($promo['title']) ?>"
+                            <img src="uploads/<?= $promo['image'] ?>" alt="<?= htmlspecialchars($promo['title']) ?>"
                                 class="w-full h-[550px] object-cover rounded-xl shadow-lg">
                             <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-xl p-6 flex flex-col justify-end">
                                 <h2 class="text-2xl font-bold text-white mb-2"><?= htmlspecialchars($promo['title']) ?></h2>

@@ -29,6 +29,7 @@ $booking = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title>Bukti Booking | Azra Clinic</title>
+    <link rel="stylesheet" href="../assets/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -76,7 +77,6 @@ $booking = $result->fetch_assoc();
         </div>
 
         <!-- Footer & Print -->
-
         <style>
             @media print {
                 .print-hide {
@@ -85,11 +85,15 @@ $booking = $result->fetch_assoc();
             }
         </style>
 
-        <div class="mt-10 text-center">
+        <div class="mt-10 text-center space-y-4">
             <button onclick="window.print()" class="bg-blue-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl shadow-md transition-all text-sm font-medium print-hide">
                 🖨️ Cetak Bukti Booking
             </button>
-
+            <a href="treatment.php" class="block">
+                <button class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-xl shadow-md transition-all text-sm font-medium print-hide">
+                    ⬅ Kembali ke Treatments
+                </button>
+            </a>
             <p class="text-xs text-gray-400 mt-4 italic">Silakan tunjukkan bukti ini saat datang ke klinik.</p>
         </div>
     </div>
