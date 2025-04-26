@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Query untuk mendapatkan data user
-    $stmt = $conn->prepare("SELECT id, password, role FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT id, password, role FROM users WHERE username = ? AND role = 'user'");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -21,18 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $user['role'];
-
-            if ($user['role'] === 'admin') {
-                header("Location: admin/dashboard.php");
-            } else {
-                header("Location: user/user-home.php");
-            }
+            header("Location: user/user-home.php");
             exit();
         } else {
             $error_message = "Username atau password salah.";
         }
     } else {
-        $error_message = "Username atau password salah.";
+        $error_message = "Username atau password salah, atau Anda bukan user.";
     }
 
     $stmt->close();
@@ -45,14 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Azra Beauty Clinic</title>
+    <title>User Login - Azra Beauty Clinic</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-blue-100 min-h-screen flex items-center justify-center">
-
-    <!-- Login Card -->
     <div class="bg-white shadow-lg rounded-lg p-6 md:p-8 w-full max-w-md">
-        <h1 class="text-2xl md:text-3xl font-bold text-blue-500 text-center mb-6">Login</h1>
+        <h1 class="text-2xl md:text-3xl font-bold text-blue-500 text-center mb-6">User Login</h1>
         
         <?php if (isset($error_message)): ?>
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
